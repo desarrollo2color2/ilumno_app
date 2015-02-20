@@ -1,0 +1,23 @@
+{
+    "name": "tornes/tornes",
+    "description": "Tornes Framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nestor Guerrero",
+            "email": "desarrollo4@coloralcuadrado.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload" : {
+        "psr-4" : {
+            "App\\"    : "app/"
+        
+        },
+        "classmap" : [
+            "models", 
+            "controllers"
+        ],
+        "files" : ["config/init.php"]
+    }
+}
