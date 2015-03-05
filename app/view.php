@@ -18,20 +18,15 @@
 
 		}
 		// Mensajes
-		static function message($type, $content)
+		static function message($type, $content, $ajax)
 		{
-			switch ($type) {
-				case 'error':
-					echo  '<div class="alert alert-danger" role="alert">'.$content.'</div>';
-					break;
-				case 'ok':
-					echo '<div class="alert alert-success" role="alert">'.$content.'</div>';
-					break;
-				default:
-					# code...
-					break;
-			}
-			
+		
+			if($ajax) : 
+				echo  '<div class="alert alert-'.$type.'" role="alert">'.$content.'</div>';
+			else :
+				return  '<div class="alert alert-'.$type.'" role="alert">'.$content.'</div>';
+	
+			endif;
 
 		}
 		//  Titulo
@@ -126,9 +121,9 @@
 		 // Funcion que agrega un widget 
 		static function add_widget($name, $params = null) {
 
-			if (file_exists(PATH . 'widgets/' . $name . '.php')):
+			if (file_exists(PATH . 'widgets/' . $name . '.tpl')):
 
-				return require_once PATH . 'widgets/' . $name . '.php';
+				return require_once PATH . 'widgets/' . $name . '.tpl';
 
 			else:
 

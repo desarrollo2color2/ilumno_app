@@ -88,42 +88,80 @@ Class Db {
 
 	}
 
-	public static function save($array) {
+	private static function get_multi_key($array)
+	{
+
+		$np = '';
+
+		foreach($array as $v) :
+
+			$np.= ' '.$v.',';
+
+		endforeach;	
+
+		return $np;
+
+	}
+
+	public static function save($array, $multiple = false) {
 
 		$query = "INSERT INTO " . static::$table_name . "";
 		$keys = ' ( ';
-		$values = ' VALUES (';
+		
 
-		foreach ($array as $k => $v):
-
-			if (gettype($v) == 'string'):
+		if(!$multiple) :
+			$values = ' VALUES (';
+			foreach ($array as $k => $v):
 
 				if ($v != ''):
 
-					$keys .= $k . ',';
+					$keys .= ' '.$k . ',';
 					$values .= "'" . $v . "',";
 
 				endif;
 
-			else:
+			endforeach;
+			$values = rtrim($values, ',') . ' )';
 
-				if ($v != 0):
 
-					$keys .= $k . ',';
-					$values .= $v . ',';
+		else :
 
-				endif;
+			//  El array debe ser  array(0 => array('key1' => $valor, 'key2' => $valor2))
+			$values = ' VALUES ';
 
-			endif;
+			$keys .= self::get_multi_key(array_keys($array[0]));
 
-		endforeach;
+			
+			foreach($array as $k => $v) :
 
-		$keys = rtrim($keys, ',') . ' )';
-		$values = rtrim($values, ',') . ' )';
+
+					$values .=  ' (';
+
+					foreach($v as $v1) :
+
+						$values .= "'" . $v1 . "',";
+
+					endforeach;
+
+					$values = rtrim($values, ',');
+
+					$values .= ' ), ';
+
+			endforeach;
+
+			$values = rtrim($values, ', ').';';
+
+		endif;	
+
+
+
+		$keys =  rtrim($keys, ',') . ' )';
+		
 
 		$nd = $query . $keys . $values;
 
 		// echo $nd;
+
 
 		$db = static::__connect();
 

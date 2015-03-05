@@ -8,6 +8,8 @@
 
 <section id="admincontent">
 	
+	<?php self::add_widget('mensajes'); ?>
+	
 	<?php require_once $content; ?> 
 
 

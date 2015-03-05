@@ -3,28 +3,109 @@
 	namespace App;
 
 	use App\View as view;
-	
+
 
 	Class Controller
 	{
 
 
-
 		protected static function view()
 		{
 
-			
 			return new view();
 		}
 
+		public static function mensaje($type, $content)
+		{
+
+			return self::view()->message($type, $content, $ajax = self::is_ajax());
+
+		}
+
+		// Convertir un arreglo normal en json para insertar
+		protected static function get_json_data($array)
+		{
+			if(is_array($array)) :
+				return json_encode($array, JSON_UNESCAPED_UNICODE);
+			else :
+				return $array;
+			endif;
+		}
+
+		// Convertir un arreglo json en noraml para mostar
+		protected static function set_json_data($array)
+		{
+			if(is_object(json_decode($array))) :
+				return json_decode($array, true);
+			else :
+				return $array;
+			endif;
+		}
+
+		protected static function is_ajax()
+		{
+
+			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') :
+				
+				return true;
+
+			else :		
+					return false;
+			endif;
+
+		}
 
 		protected static function url_redirect($url) {
 
 			header("Location: {$url}");
 			exit();
 		}
+		//  Import csv
+		static function import_csv($path_file)
+		{
+			$row = 0;
+			if (($handle = fopen($path_file, "r")) !== FALSE) {
+
+			    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+			        $num = count($data);
 
 
+
+			        foreach($data as $k => $v) :
+
+			      //   	echo '<pre>';
+
+					   	// var_dump($v);
+
+					  	 // echo '</pre>';
+			        	$values[$row] = explode(';', $v);
+
+			        	// if($row == 0) :
+
+
+				        // 	$new_array[$row][$k] = $v;
+
+
+			        	// else :
+
+			        	// 	$new_array[$row][$new_array[0][$k]] = $v;
+
+			        	// endif;
+
+		        	endforeach;
+
+			        $row++;
+			    }
+			    fclose($handle);
+			    // unset($new_array[0]);
+			    
+		   
+			     return $values;
+
+			}
+
+
+		}
 		// Funcion general para subir archivos ya sena uno o multiples
 		static function __upload_file($path, $file, $multiple = false) {
 
@@ -82,6 +163,8 @@
 			endif;
 
 		}
+
+
 		// Generar la entrada al controlador
 		static function create($file, $params = null)
 		{
@@ -91,7 +174,7 @@
 
 
 				$name = ucfirst($url[1]).'Controller';
-	
+					
 
 				if (method_exists($name, $url[0])):
 

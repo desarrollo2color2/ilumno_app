@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo LANG ?>">
+<html lang="<?php echo LANG ?>" class="demo-drawings no-js">
 
 	<head>
 	

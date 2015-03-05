@@ -6,6 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CityController' => $baseDir . '/controllers/city.php',
+    'CityModel' => $baseDir . '/models/city.php',
+    'CountryController' => $baseDir . '/controllers/country.php',
+    'CountryModel' => $baseDir . '/models/country.php',
+    'CurrencyController' => $baseDir . '/controllers/currency.php',
+    'CurrencyModel' => $baseDir . '/models/currency.php',
+    'SearchController' => $baseDir . '/controllers/search.php',
+    'UniversityController' => $baseDir . '/controllers/university.php',
+    'UniversityModel' => $baseDir . '/models/university.php',
     'UserController' => $baseDir . '/controllers/user.php',
     'UserModel' => $baseDir . '/models/user.php',
 );

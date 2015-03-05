@@ -35,12 +35,6 @@
 	}
 
 
-	static function nada()
-	{
-		parent::view()->create('login:no_layout'); 
-	}
-
-
 	public static function all_users()
 	{
 
@@ -53,7 +47,7 @@
 	public static function insert_user()
 	{
 
-		$_POST['pass_usuario'] = md5($_POST['pass_usuario']);
+		$_POST['pass_usuario'] = sha1(md5($_POST['pass_usuario']));
 
 		if(UserModel::save($_POST)) :
 
@@ -159,7 +153,7 @@
 	public static function delete_user()
 	{
 
-		if( isset($_POST['id']) &&  u::delete_by_id($_POST['id'])) :
+		if( isset($_POST['id']) &&  UserModel::delete_by_id($_POST['id'])) :
 			echo 'Usuario eliminado';
 		endif;
 

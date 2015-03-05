@@ -39,7 +39,7 @@
 					<td><?php echo $user['email']; ?></td>
 					<td><?php echo $user['tipo']; ?></td>
 		
-					<td><a class="edit" href="<?php echo URL.'admin/update_user/id/'.$user['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>	
+					<td><a class="edit" href="<?php echo URL.'admin/update_user/'.$user['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>	
 					<td><a class="delete_user delete" href="<?php echo $user['id']; ?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 

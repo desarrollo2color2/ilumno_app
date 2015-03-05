@@ -27,20 +27,36 @@ Class App {
 		exit();
 	}
 
-	//  funcion interna que recorre la url para obtener las variables por $_GET
-	private static function get_vars($array) {
+	private static function  if_key_exist($key, $array)
+	{
 
-		$i = 1;
+		foreach($array as $k => $v) :
 
-		foreach ($array as $k => $v):
+			if($key == $k) :
 
-			if ($i % 2 == 0):
-
-				$new_array[$array[$k - 1]] = $array[$k];
+				return $v;
 
 			endif;
 
-			$i++;
+		endforeach;
+
+		return false;
+
+	}
+
+	//  funcion interna que recorre la url para obtener las variables por $_GET
+	private static function get_vars($array, $array_keys_get) {
+
+		$i = 0;
+		
+		foreach ($array as $k => $v):
+
+			if($is_exist = self::if_key_exist($i, $array_keys_get)) :
+				$new_array[$is_exist] = $v;
+			else :
+
+				self::url_redirect(URL.'404');
+			endif;
 
 		endforeach;
 
@@ -68,7 +84,10 @@ Class App {
 
 					$get_vars = explode("/", $url);
 
-					$get_vars = self::get_vars($get_vars);
+					$array_keys_get = $route_val['get_vars'];
+
+
+					$get_vars = self::get_vars($get_vars, $array_keys_get);
 
 					$url = $route;
 
@@ -82,9 +101,8 @@ Class App {
 
 					case 'view':
 
-						$perms = next($route_val);
 
-						if ($perms):
+						if (isset($route_val['perm']) && $perms = $route_val['perm']):
 
 							foreach ($perms as $perm):
 
@@ -104,15 +122,13 @@ Class App {
 
 						endif;
 
-					
 
 						break;
 
 					case 'controller':
 
-						$perms = next($route_val);
 
-						if ($perms):
+						if (isset($route_val['perm']) && $perms = $route_val['perm']):
 
 							foreach ($perms as $perm):
 

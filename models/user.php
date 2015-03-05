@@ -11,8 +11,6 @@
 		protected static $table_name = 'usuarios';
 
 
-
-
 		public static function authenticate_user($username="", $password="")
 		{	// Método que valida el username y la clave de un usuario
 		     // Traer el objeto $db_obj al método
@@ -37,12 +35,11 @@
 
 				else :
 
-				return false;	
+				return false;
 
-			endif;	
+			endif;
 
-		
-			
+
 		} 	// Fin del método authenticate_user()
 
 

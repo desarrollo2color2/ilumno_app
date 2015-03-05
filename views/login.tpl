@@ -1,4 +1,4 @@
-<?php if(isset($_SESSION['user'])) : self::url_redirect(URL.'admin'); endif; ?>
+<?php if(isset($_SESSION['user'])) : header("Location: ".URL."admin"); endif; ?>
 
 <html lang="<?php echo LANG; ?>">
 

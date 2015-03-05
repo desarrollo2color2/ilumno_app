@@ -4,7 +4,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 39, ../scss/colormin.scss */
 body.login_form {
-  background: #f1f2f7;
+  background: #000;
 }
 /* line 46, ../scss/colormin.scss */
 body.login_form > div {
@@ -556,4 +556,11 @@ body footer div {
   color: #fff;
   font-family: 'Open Sans Condensed', sans-serif;
   text-align: center;
+}
+
+/* line 753, ../scss/colormin.scss */
+.search_results .row {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
 }
