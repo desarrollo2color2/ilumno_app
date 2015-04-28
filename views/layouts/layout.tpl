@@ -4,11 +4,11 @@
 <div class="maincontent">
 
 		
-		<section>
+		
 			
-			<?php require_once $content; ?> 
+	<?php require_once $content; ?> 
 
-		</section>
+	
 	
 
 </div>	

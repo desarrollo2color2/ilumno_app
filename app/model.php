@@ -2,7 +2,7 @@
 
 	namespace App;
 
-	use App\Db as db;
+	use App\db as db;
 
 	Class Model extends db{
 

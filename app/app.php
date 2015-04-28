@@ -2,16 +2,16 @@
 
 namespace App;
 
-use App\Session     as session;
-use App\View        as view;
-use App\Controller  as controller;
+use App\session     as session;
+use App\view        as view;
+use App\controller  as controller;
 
 
 Class App {
 
 
 	public static $session;
-
+	protected static $class;
 
 
 	//  Obtiene todas las rutas del sitio
@@ -25,6 +25,13 @@ Class App {
 
 		header("Location: {$url}");
 		exit();
+	}
+
+	static function dump($var)
+	{
+		echo '<pre>';
+			var_dump($var);
+		echo '</pre>';
 	}
 
 	private static function  if_key_exist($key, $array)
@@ -42,6 +49,28 @@ Class App {
 
 		return false;
 
+	}
+
+	static function send_mail($to, $content, $subject)
+	{
+		
+		//$to = "mercadeo@bebridge.co";
+	    $from = " ".$subject."  <info@mundoilumno.com>";
+	    //$subject = "Formulario de capacitacion Be Bridge";
+
+	    //begin of HTML message 
+	    $message ="
+		<html> 
+		  <body> 
+		  		".$content."
+		    
+		  </body>
+		</html>";
+	   //end of message 
+	    $headers  = "From: $from\r\n"; 
+	    $headers .= "Content-type: text/html\r\n";
+
+	    mail($to, $subject, $message, $headers); 
 	}
 
 	//  funcion interna que recorre la url para obtener las variables por $_GET
@@ -97,6 +126,8 @@ Class App {
 
 			if ($url == $route):
 
+				self::$class = $route;
+
 				switch (key($route_val)) {
 
 					case 'view':
@@ -114,11 +145,14 @@ Class App {
 
 							endforeach;
 
-							return isset($_SESSION['user']) ? self::url_redirect(URL . 'perm') : self::url_redirect(URL);
+							return isset($_SESSION['user']) ? self::url_redirect(URL . 'acceso_denegado') : self::url_redirect(URL.'login_form');
 
 						else:
 
+					
+
 							return isset($get_vars) ? view::create($route_val['view'], $get_vars) : view::create($route_val['view']);
+
 
 						endif;
 
@@ -140,12 +174,15 @@ Class App {
 
 							endforeach;
 
-							return isset($_SESSION['user']) ? (URL . 'perm') : self::url_redirect(URL);
+							return isset($_SESSION['user']) ? (URL . 'acceso_denegado') : self::url_redirect(URL.'login_form');
 
 						else:
 
+
 							return isset($get_vars) ? controller::create($route_val['controller'], $get_vars) : controller::create($route_val['controller']);
 
+				
+							
 						endif;
 
 						break;

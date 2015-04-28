@@ -1,0 +1,344 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 35, ../scss/color.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 39, ../scss/color.scss */
+body {
+  background: #f4f4f4 !important;
+
+}
+
+/* line 44, ../scss/color.scss */
+.uni_full {
+  background: #fff;
+  padding: 35px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 52, ../scss/color.scss */
+.uni_full .fa-university {
+  font-size: 100px;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 0;
+  height:485px;
+  width:225px;
+  text-align: center;
+}
+/* line 60, ../scss/color.scss */
+.uni_full .nombre {
+  display: block;
+  font-size: 28px;
+  margin-bottom:15px;
+  color:#444;
+  font-weight:bold;
+  text-align:center;
+
+}
+/* line 63, ../scss/color.scss */
+.uni_full .nombre strong {
+  display: none;
+}
+/* line 68, ../scss/color.scss */
+.uni_full > div {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 10px 10px 0;
+}
+/* line 73, ../scss/color.scss */
+.uni_full > div strong {
+  color: #999;
+  display: block;
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+/* line 84, ../scss/color.scss */
+.uni_full .see_more {
+  display: block;
+}
+/* line 86, ../scss/color.scss */
+.uni_full .see_more > div {
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px 20px 10px 0;
+  background: #f9f9f9;
+  min-height: 130px;
+  width: 21%;
+  padding: 15px;
+  border:1px solid #e9e9e9;
+}
+/* line 94, ../scss/color.scss */
+.uni_full .see_more > div ul {
+  padding: 0;
+  list-style: none;
+  margin-top:10px;
+}
+/* line 97, ../scss/color.scss */
+.uni_full .see_more > div ul i {
+ /* font-weight:700;*/
+  font-style: normal;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  min-width: 102px;
+  font-size:12px;
+}
+/* line 108, ../scss/color.scss */
+.uni_full a {
+  display: none;
+}
+
+/* line 117, ../scss/color.scss */
+#busqueda .background_search {
+  background-image: url("../img/brasil.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: -10;
+  position: fixed;
+  width: 100%;
+  height: 500px;
+  display: block;
+}
+/* line 128, ../scss/color.scss */
+#busqueda h2 {
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 15px;
+  color: #444;
+  text-transform: capitalize;
+}
+/* line 137, ../scss/color.scss */
+#busqueda .java_filter {
+  background: #fff;
+  /*position: fixed;*/
+  padding: 15px;
+  width: 27%;
+  float:left;
+  border:1px solid #e9e9e9;
+}
+/* line 144, ../scss/color.scss */
+#busqueda .java_filter h5, #busqueda .java_filter small {
+  clear: both;
+  padding: 15px 0 0 15px;
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  text-transform: uppercase;
+}
+/* line 153, ../scss/color.scss */
+#busqueda .java_filter input, #busqueda .java_filter select {
+  margin: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+  height:30px;
+}
+/* line 159, ../scss/color.scss */
+#busqueda .java_filter form {
+  margin-left: 15px;
+}
+/* line 162, ../scss/color.scss */
+#busqueda .java_filter form button {
+  display: inline-block;
+  background-color: #ff4c4c;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  border: none;
+  box-shadow: none;
+  padding: 8px 15px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin-left:-12px;
+  width:100%;
+}
+/* line 174, ../scss/color.scss */
+#busqueda .java_filter form button i {
+  margin-right: 10px;
+}
+/* line 180, ../scss/color.scss */
+#busqueda .busqueda_head {
+  position: fixed;
+  width: 100%;
+  background: #ff4c4c;
+  z-index: 100;
+}
+/* line 185, ../scss/color.scss */
+#busqueda .busqueda_head form {
+  float: right;
+  margin: 10px 0;
+}
+/* line 189, ../scss/color.scss */
+#busqueda .busqueda_head form .form-group {
+  margin-right: 15px;
+}
+/* line 193, ../scss/color.scss */
+#busqueda .busqueda_head form label {
+  position: relative;
+  text-transform: uppercase;
+}
+/* line 196, ../scss/color.scss */
+#busqueda .busqueda_head form label:after {
+  line-height: 14px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  padding: 10px 13px;
+  width: auto;
+  height: 100%;
+  content: "\f107";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  pointer-events: none;
+  color: #fff;
+}
+/* line 212, ../scss/color.scss */
+#busqueda .busqueda_head form select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #fff;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+  box-shadow: none;
+  outline: none !important;
+  padding: 0 23px 0 10px;
+}
+
+
+/* line 226, ../scss/color.scss */
+#busqueda .busqueda_head form button {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  border: none;
+  box-shadow: none;
+  padding: 8px 15px;
+  max-width: 200px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+/* line 238, ../scss/color.scss */
+#busqueda .busqueda_head form button i {
+  margin-right: 10px;
+}
+/* line 245, ../scss/color.scss */
+#busqueda h1 {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  float: left;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 26px;
+  margin: 10px 0;
+}
+/* line 253, ../scss/color.scss */
+#busqueda h1 i {
+  margin-right: 15px;
+}
+/* line 258, ../scss/color.scss */
+#busqueda .search_results {
+  margin: 30px 0 25px;
+}
+/* line 262, ../scss/color.scss */
+#busqueda .search_results .universidades h3 {
+  color: #444;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 0 50px 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #444;
+  font-size: 30px;
+  text-transform: capitalize;
+}
+#busqueda .search_results .universidades h3 small {
+  text-transform: lowercase;
+  font-foze:13px;
+}
+/* line 275, ../scss/color.scss */
+#busqueda .search_results .universidades .uni {
+  display: inline-block;
+  vertical-align: top;
+  margin: 15px 0;
+  width: 31%;
+  margin: 15px 1%;
+  padding: 15px;
+  background: #fff;
+  min-height: 300px;
+  position: relative;
+  border:1px solid #e9e9e9;
+  overflow:hidden;
+}
+#busqueda .search_results .universidades .uni .presidente {
+  display:none;
+}
+/* line 286, ../scss/color.scss */
+#busqueda .search_results .universidades .uni .fa-university {
+  display: block;
+  font-size: 60px;
+  margin: 0 0 15px;
+  text-align: center;
+}
+/* line 294, ../scss/color.scss */
+#busqueda .search_results .universidades .uni a {
+  display: block;
+  background: #2eb8d4;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  bottom: 13px;
+  position: absolute;
+  width: 90%;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+/* line 308, ../scss/color.scss */
+#busqueda .search_results .universidades .uni a i {
+  margin-left: 15px;
+}
+/* line 315, ../scss/color.scss */
+#busqueda .search_results .universidades .uni .nombre {
+  display: block;
+  min-height: 45px;
+  word-wrap: break-word;
+}
+/* line 322, ../scss/color.scss */
+#busqueda .search_results .universidades .uni > div {
+  font-family: 'Open Sans', sans-serif;
+  margin: 10px 20px 0 12px;
+  font-size: 10px;
+  clear: both;
+  word-wrap:break-word;
+}
+/* line 330, ../scss/color.scss */
+#busqueda .search_results .universidades .uni > div strong {
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 88px;
+}
+/* line 343, ../scss/color.scss */
+#busqueda .search_results .universidades .uni .see_more {
+  display: none;
+}

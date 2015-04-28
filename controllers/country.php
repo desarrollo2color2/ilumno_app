@@ -22,6 +22,9 @@
 
 			$is_exist = CountryModel::find_by_attr(array('nombre' => $_POST['nombre']));
 
+			$img = ($is_exist  == false) ? parent::__upload_file(PATH.'assets/upload/', $_FILES['img']) : null;
+			if ($img != null): $_POST['img'] = $img;  endif;
+
    			if($is_exist  == false && CountryModel::save($_POST) ) :
 
 				$_SESSION['message'] = parent::mensaje('success', '<strong>Exito</strong> al crear el pais');
@@ -69,6 +72,12 @@
 		public static function update_by_country ()
 		{
 			
+			if (!isset($_POST['img'])):
+				$img = parent::__upload_file(PATH.'assets/upload/', $_FILES['img']);
+				if ($img != null): $_POST['img'] = $img; endif;
+			endif;
+
+
 			if(isset($_POST['id']) && CountryModel::update($_POST, ' WHERE id = '.$_POST['id'].' ')) :
 
 				$url = URL."admin/countries";

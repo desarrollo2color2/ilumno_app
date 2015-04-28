@@ -4,38 +4,77 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 39, ../scss/colormin.scss */
 body.login_form {
-  background: #000;
+  background: url(../img/bg_1.png) no-repeat;
+  background-size: 100%;
 }
-/* line 46, ../scss/colormin.scss */
-body.login_form > div {
+/* line 44, ../scss/colormin.scss */
+body.login_form .login_head {
+  background: #00284E;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+/* line 51, ../scss/colormin.scss */
+body.login_form .login_head .container {
+  background: url(../img/l_l.png) no-repeat;
+  max-width: 1280px;
   margin: 0 auto;
-  display: block;
-  max-width: 1170px;
+  height: 50px;
+  background-position: top;
 }
-/* line 54, ../scss/colormin.scss */
+/* line 61, ../scss/colormin.scss */
+body.login_form .login_footer {
+  position: fixed;
+  bottom: 0;
+  background: rgba(250, 250, 250, 0.7);
+  height: 31px;
+  width: 100%;
+}
+/* line 69, ../scss/colormin.scss */
+body.login_form .login_footer .container {
+  color: #00284E;
+  font-family: verdana;
+  font-size: 12px;
+  margin: 0 auto;
+  line-height: 31px;
+  text-align: center;
+}
+/* line 80, ../scss/colormin.scss */
+body.login_form > div {
+  /* margin:0 auto;
+  display:block;
+  max-width:1170px;
+  */
+}
+/* line 88, ../scss/colormin.scss */
 body.login_form > div > div {
   margin: 10% auto 0;
   display: block;
   max-width: 400px;
-  background: #fff;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
   padding-bottom: 10px;
 }
-/* line 63, ../scss/colormin.scss */
+/* line 95, ../scss/colormin.scss */
 body.login_form > div > div div {
   position: relative;
 }
-/* line 67, ../scss/colormin.scss */
+/* line 99, ../scss/colormin.scss */
 body.login_form > div > div div i {
   position: absolute;
-  left: 2%;
+  left: 5%;
   display: block;
   padding: 11px 12px;
   color: #999;
 }
-/* line 80, ../scss/colormin.scss */
+/* line 112, ../scss/colormin.scss */
+body.login_form > div > div form {
+  background-color: #fff;
+  padding-bottom: 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 118, ../scss/colormin.scss */
 body.login_form > div > div h3 {
   padding: 20px 15px;
   text-align: center;
@@ -45,61 +84,56 @@ body.login_form > div > div h3 {
   font-weight: normal;
   color: #fff;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
-  background: #41cac0;
-  -moz-box-shadow: 0 4px #38B0A8;
-  -webkit-box-shadow: 0 4px #38B0A8;
-  box-shadow: 0 4px #38B0A8;
+  font-family: 'Open Sans', sans-serif;
+  background: #2eb8d4;
 }
-/* line 94, ../scss/colormin.scss */
+/* line 132, ../scss/colormin.scss */
 body.login_form > div > div input[type="text"], body.login_form > div > div input[type="password"] {
   display: block;
   padding: 10px 12px 10px 42px;
-  width: 90%;
-  margin: 0 2% 15px;
+  width: 94%;
+  margin: 0 auto 15px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #eaeaea;
   color: #666;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
 }
-/* line 107, ../scss/colormin.scss */
+/* line 146, ../scss/colormin.scss */
 body.login_form > div > div input[type="submit"] {
   display: block;
   padding: 10px 12px;
-  background: #f67a6e;
+  background: #ff4c4c;
   color: #fff;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: none;
-  margin: 10px auto 20px;
+  margin: 28px auto 20px;
   font-size: 12px;
   text-transform: uppercase;
-  min-width: 300px;
-  -moz-box-shadow: 0 4px #e56b60;
-  -webkit-box-shadow: 0 4px #e56b60;
-  box-shadow: 0 4px #e56b60;
+  width: 94%;
 }
-/* line 126, ../scss/colormin.scss */
+/* line 165, ../scss/colormin.scss */
 body.login_form > div > div a {
   text-decoration: none;
   cursor: pointer;
   color: #41cac0;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   display: block;
   font-size: 14px;
 }
 
-/* line 148, ../scss/colormin.scss */
+/* line 190, ../scss/colormin.scss */
 body {
   background: #f1f2f7;
 }
-/* line 154, ../scss/colormin.scss */
+/* line 196, ../scss/colormin.scss */
 body header {
   min-height: 60px;
   background: #fff;
@@ -110,7 +144,7 @@ body header {
   z-index: 1001;
   top: 0;
 }
-/* line 165, ../scss/colormin.scss */
+/* line 207, ../scss/colormin.scss */
 body header .ico_menu {
   display: inline-block;
   vertical-align: top;
@@ -119,16 +153,16 @@ body header .ico_menu {
   margin-top: 20px;
   cursor: pointer;
 }
-/* line 176, ../scss/colormin.scss */
+/* line 218, ../scss/colormin.scss */
 body header .admin_logo {
   position: absolute;
   left: 40%;
 }
-/* line 183, ../scss/colormin.scss */
+/* line 225, ../scss/colormin.scss */
 body header .logout {
   display: block;
   background-color: #a9d96c;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-decoration: none;
   color: #fff;
   font-size: 15px;
@@ -141,7 +175,7 @@ body header .logout {
   border-radius: 5px;
   margin-top: 10px;
 }
-/* line 200, ../scss/colormin.scss */
+/* line 242, ../scss/colormin.scss */
 body header .user_interface {
   background: none repeat scroll 0 0 #2a3542;
   display: none;
@@ -152,9 +186,9 @@ body header .user_interface {
   right: -2px;
   min-width: 500px;
 }
-/* line 213, ../scss/colormin.scss */
+/* line 255, ../scss/colormin.scss */
 body header .user_interface span {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #fff;
   margin-bottom: 10px;
   font-size: 14px;
@@ -162,12 +196,12 @@ body header .user_interface span {
   display: block;
   width: 100%;
 }
-/* line 223, ../scss/colormin.scss */
+/* line 265, ../scss/colormin.scss */
 body header .user_interface span b {
   display: block;
   text-align: center;
 }
-/* line 232, ../scss/colormin.scss */
+/* line 274, ../scss/colormin.scss */
 body header .user_interface:after {
   border-bottom: 10px solid #2a3542;
   border-left: 10px solid transparent;
@@ -179,7 +213,7 @@ body header .user_interface:after {
   top: -8px;
   z-index: 1000;
 }
-/* line 250, ../scss/colormin.scss */
+/* line 292, ../scss/colormin.scss */
 body header .user_icon {
   background: none repeat scroll 0 0 #f5f5f5;
   border-radius: 40px;
@@ -196,7 +230,7 @@ body header .user_icon {
   width: 40px;
   outline: none;
 }
-/* line 275, ../scss/colormin.scss */
+/* line 317, ../scss/colormin.scss */
 body aside {
   background: #2a3542;
   width: 210px;
@@ -206,63 +240,63 @@ body aside {
   z-index: 1000;
   top: 0;
 }
-/* line 285, ../scss/colormin.scss */
+/* line 327, ../scss/colormin.scss */
 body aside ul {
   padding: 0;
 }
-/* line 291, ../scss/colormin.scss */
+/* line 333, ../scss/colormin.scss */
 body aside ul li {
   margin: 0 15px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 296, ../scss/colormin.scss */
+/* line 338, ../scss/colormin.scss */
 body aside ul li > ul {
   display: none;
   list-style: none;
 }
-/* line 303, ../scss/colormin.scss */
+/* line 345, ../scss/colormin.scss */
 body aside ul li a {
   color: #fff;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-decoration: none;
   padding: 15px 0 15px 10px;
   display: block;
 }
-/* line 311, ../scss/colormin.scss */
+/* line 353, ../scss/colormin.scss */
 body aside ul li a .fa-plus {
   font-size: 11px;
   float: right;
 }
-/* line 318, ../scss/colormin.scss */
+/* line 360, ../scss/colormin.scss */
 body aside ul li a i {
   margin-right: 10px;
   min-width: 15px;
 }
-/* line 329, ../scss/colormin.scss */
+/* line 371, ../scss/colormin.scss */
 body aside ul li:hover {
   background: #35404d;
 }
-/* line 333, ../scss/colormin.scss */
+/* line 375, ../scss/colormin.scss */
 body aside ul li:hover a {
   text-decoration: none;
   color: #fff;
 }
-/* line 338, ../scss/colormin.scss */
+/* line 380, ../scss/colormin.scss */
 body aside ul li:hover a i {
   color: #ff6c60;
 }
-/* line 344, ../scss/colormin.scss */
+/* line 386, ../scss/colormin.scss */
 body aside ul li:hover a .fa-plus {
   color: #fff;
 }
-/* line 363, ../scss/colormin.scss */
+/* line 405, ../scss/colormin.scss */
 body #admincontent {
   margin-top: 80px;
   margin-left: 210px;
 }
-/* line 369, ../scss/colormin.scss */
+/* line 411, ../scss/colormin.scss */
 body #admincontent .admin {
   background: #fff;
   margin: 2% 1%;
@@ -271,11 +305,11 @@ body #admincontent .admin {
   border-radius: 5px;
   padding: 0 0 15px;
 }
-/* line 378, ../scss/colormin.scss */
+/* line 420, ../scss/colormin.scss */
 body #admincontent .add_apto {
   display: block;
 }
-/* line 380, ../scss/colormin.scss */
+/* line 422, ../scss/colormin.scss */
 body #admincontent .apto {
   width: 45%;
   display: inline-block;
@@ -285,7 +319,7 @@ body #admincontent .apto {
   border: 1px solid #f0f0f0;
   padding: 2%;
 }
-/* line 396, ../scss/colormin.scss */
+/* line 438, ../scss/colormin.scss */
 body #admincontent .change_slide_img, body #admincontent .change_logo, body #admincontent .add_gallery, body #admincontent .add_apto, body #admincontent .change_img_google, body #admincontent .change_pdf {
   background-color: #57c8f2;
   display: block;
@@ -295,16 +329,16 @@ body #admincontent .change_slide_img, body #admincontent .change_logo, body #adm
   color: #fff;
   padding: 7px 10px;
   max-width: 200px;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 12px 0;
   cursor: pointer;
   text-decoration: none;
 }
-/* line 409, ../scss/colormin.scss */
+/* line 451, ../scss/colormin.scss */
 body #admincontent .change_slide_img i, body #admincontent .change_logo i, body #admincontent .add_gallery i, body #admincontent .add_apto i, body #admincontent .change_img_google i, body #admincontent .change_pdf i {
   margin-right: 15px;
 }
-/* line 420, ../scss/colormin.scss */
+/* line 462, ../scss/colormin.scss */
 body #admincontent .remove_apto {
   color: #fff;
   padding: 5px;
@@ -320,12 +354,12 @@ body #admincontent .remove_apto {
   text-align: center;
   cursor: pointer;
 }
-/* line 437, ../scss/colormin.scss */
+/* line 479, ../scss/colormin.scss */
 body #admincontent #sortable {
   list-style: none;
   padding: 0;
 }
-/* line 442, ../scss/colormin.scss */
+/* line 484, ../scss/colormin.scss */
 body #admincontent #sortable li {
   margin-right: 1%;
   width: 47%;
@@ -334,7 +368,7 @@ body #admincontent #sortable li {
   padding: 2%;
   border: 1px solid #f0f0f0;
 }
-/* line 451, ../scss/colormin.scss */
+/* line 493, ../scss/colormin.scss */
 body #admincontent #sortable li .remove_img_gallery {
   color: #fff;
   padding: 5px;
@@ -350,19 +384,19 @@ body #admincontent #sortable li .remove_img_gallery {
   text-align: center;
   cursor: pointer;
 }
-/* line 472, ../scss/colormin.scss */
+/* line 514, ../scss/colormin.scss */
 body #admincontent form {
   padding: 15px 0;
 }
-/* line 476, ../scss/colormin.scss */
+/* line 518, ../scss/colormin.scss */
 body #admincontent form input[type="file"] {
   margin: 10px;
 }
-/* line 482, ../scss/colormin.scss */
+/* line 524, ../scss/colormin.scss */
 body #admincontent form input[type="submit"] {
   background-color: #ff6c60;
   color: #fff;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -371,34 +405,34 @@ body #admincontent form input[type="submit"] {
   border: none;
   margin: 0 15px;
 }
-/* line 495, ../scss/colormin.scss */
+/* line 537, ../scss/colormin.scss */
 body #admincontent form .pdf {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
-/* line 502, ../scss/colormin.scss */
+/* line 544, ../scss/colormin.scss */
 body #admincontent form .fa-file-pdf-o {
   font-size: 80px;
   color: #f4f4f4;
   text-shadow: #666 1px 1px 0;
   margin-right: 15px;
 }
-/* line 512, ../scss/colormin.scss */
+/* line 554, ../scss/colormin.scss */
 body #admincontent form .form-group {
   padding: 0 15px;
 }
-/* line 517, ../scss/colormin.scss */
+/* line 559, ../scss/colormin.scss */
 body #admincontent form .form-group label {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #444;
   display: block;
 }
-/* line 525, ../scss/colormin.scss */
+/* line 567, ../scss/colormin.scss */
 body #admincontent form .form-group img {
   width: 100% !important;
   max-width: 100%;
   max-height: 200px;
 }
-/* line 536, ../scss/colormin.scss */
+/* line 578, ../scss/colormin.scss */
 body #admincontent form .form-group output span {
   border: 1px solid #f0f0f0;
   display: inline-block;
@@ -408,7 +442,7 @@ body #admincontent form .form-group output span {
   position: relative;
   width: 47% !important;
 }
-/* line 554, ../scss/colormin.scss */
+/* line 596, ../scss/colormin.scss */
 body #admincontent form .form-group select {
   -moz-appearance: tabpanels;
   -webkit-appearance: tabpanels;
@@ -417,53 +451,53 @@ body #admincontent form .form-group select {
   box-shadow: none;
   display: block;
 }
-/* line 559, ../scss/colormin.scss */
+/* line 601, ../scss/colormin.scss */
 body #admincontent form .form-group select option {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 567, ../scss/colormin.scss */
+/* line 609, ../scss/colormin.scss */
 body #admincontent form .form-group input[type="text"], body #admincontent form .form-group input[type="email"], body #admincontent form .form-group select, body #admincontent form .form-group input[type="password"] {
   display: block;
   padding: 7px 15px;
   color: #666;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   width: 100%;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #c3c3c3;
 }
-/* line 582, ../scss/colormin.scss */
+/* line 624, ../scss/colormin.scss */
 body #admincontent form .inline {
   float: left;
   width: 48%;
   margin-right: 1%;
   min-height: 60px;
 }
-/* line 590, ../scss/colormin.scss */
+/* line 632, ../scss/colormin.scss */
 body #admincontent form .inline:after, body #admincontent form .inline:before {
   clear: both;
 }
-/* line 601, ../scss/colormin.scss */
+/* line 643, ../scss/colormin.scss */
 body #admincontent .full {
   clear: both;
 }
-/* line 609, ../scss/colormin.scss */
+/* line 651, ../scss/colormin.scss */
 body #admincontent .table {
   width: 90%;
   margin: 15px 0;
 }
-/* line 616, ../scss/colormin.scss */
+/* line 658, ../scss/colormin.scss */
 body #admincontent .table thead th {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
-/* line 629, ../scss/colormin.scss */
+/* line 671, ../scss/colormin.scss */
 body #admincontent .table tbody td {
   font-family: Trebuchet MS;
 }
-/* line 634, ../scss/colormin.scss */
+/* line 676, ../scss/colormin.scss */
 body #admincontent .table tbody td .edit {
   display: block;
   background-color: #41cac0;
@@ -471,12 +505,12 @@ body #admincontent .table tbody td .edit {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   color: #fff;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-decoration: none;
   padding: 5px 7px;
   text-align: center;
 }
-/* line 648, ../scss/colormin.scss */
+/* line 690, ../scss/colormin.scss */
 body #admincontent .table tbody td .delete {
   display: block;
   background-color: #ff6c60;
@@ -484,18 +518,18 @@ body #admincontent .table tbody td .delete {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   color: #fff;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-decoration: none;
   padding: 5px 7px;
   text-align: center;
 }
-/* line 669, ../scss/colormin.scss */
+/* line 711, ../scss/colormin.scss */
 body #admincontent .add_button {
   float: right;
   display: block;
   padding: 10px 12px;
   color: #fff;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: #58c9f3;
   text-decoration: none;
   -moz-transition-property: all;
@@ -511,19 +545,19 @@ body #admincontent .add_button {
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-/* line 682, ../scss/colormin.scss */
+/* line 724, ../scss/colormin.scss */
 body #admincontent .add_button i {
   margin-right: 15px;
 }
-/* line 689, ../scss/colormin.scss */
+/* line 731, ../scss/colormin.scss */
 body #admincontent .add_button:hover {
   padding-top: 20px;
 }
-/* line 699, ../scss/colormin.scss */
+/* line 741, ../scss/colormin.scss */
 body #admincontent .title {
   margin: 0;
   background: #00a8b3;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #fff;
   font-size: 20px;
   text-transform: uppercase;
@@ -532,7 +566,7 @@ body #admincontent .title {
   -webkit-border-radius: 5px;
   border-radius: 5px 5px 0 0;
 }
-/* line 711, ../scss/colormin.scss */
+/* line 753, ../scss/colormin.scss */
 body #admincontent .title i {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -541,7 +575,7 @@ body #admincontent .title i {
   background: #0099A4;
   margin-right: 15px;
 }
-/* line 726, ../scss/colormin.scss */
+/* line 768, ../scss/colormin.scss */
 body footer {
   background: #5b6e84;
   width: 100%;
@@ -551,14 +585,14 @@ body footer {
   z-index: 999;
   position: fixed;
 }
-/* line 736, ../scss/colormin.scss */
+/* line 778, ../scss/colormin.scss */
 body footer div {
   color: #fff;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
-/* line 753, ../scss/colormin.scss */
+/* line 795, ../scss/colormin.scss */
 .search_results .row {
   display: inline-block;
   vertical-align: top;

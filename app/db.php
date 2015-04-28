@@ -24,6 +24,7 @@ Class Db {
 	public static function __query($query) {
 
 		$db = static::__connect();
+		//echo $query;
 		$result = $db->query($query);
 		
 		while ($row = $result->fetch_assoc()) {
@@ -86,6 +87,36 @@ Class Db {
 
 		return $result;
 
+	}
+
+
+	public static function delete_by_attr($array)
+	{
+		$query = "DELETE FROM " . static::$table_name. " WHERE ";
+
+		$db = static::__connect();
+
+		$count = count($array);
+
+		$i = 1;
+
+		foreach ($array as $k => $v):
+
+			$query .= ($i == $count) ? $k . ' = "' . $v . '" ' : $k . '= "' . $v . '" AND ';
+
+			$i++;
+
+		endforeach;
+
+		$query = rtrim($query, 'AND');
+
+		// echo $query.'<br/>';
+
+		$result = $db->query($query);
+
+		$db->close();
+
+		return $result;
 	}
 
 	private static function get_multi_key($array)
@@ -160,11 +191,11 @@ Class Db {
 
 		$nd = $query . $keys . $values;
 
-		// echo $nd;
+		//echo $nd.'<br/>';
 
 
 		$db = static::__connect();
-
+		
 		$result = $db->query($nd);
 
 		$res = array('result' => $result, 'db' => $db);
@@ -205,10 +236,10 @@ Class Db {
 
 		$nd = $query . $values . $where;
 
-		// echo $nd;
+		//echo $nd;
 
 		$db = static::__connect();
-
+		
 		$result = $db->query($nd);
 
 		$res = array('result' => $result, 'db' => $db);

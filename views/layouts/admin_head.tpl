@@ -9,7 +9,7 @@
 
 		<!-- Metas  -->
 
-		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
 		<meta content="PROKSOL se especializa en proveer servicios de ingeniería, construcción y gerencia de proyectos a entidades públicas y privadas. " name="description">
 		<meta name="author" content="Color al cuadrado"/>
 		<meta content="construccion" name="keywords">

@@ -220,7 +220,7 @@
 		</div>
 		<div class="col-md-4">
 			<div class="form-group">
-				<label>Modalidad - distancia</label>
+				<label>Poblacion - pregrado</label>
 				<input name="poblacion[pregrado]" type="number" class="form-control" 
 				value="<?php echo (isset($params['poblacion']['total'])) ? $params['poblacion']['pregrado'] : '';  ?>"
 				placeholder="Total estudiantes pregrado" required/>
@@ -241,7 +241,7 @@
 		</div>
 		<div class="col-md-6">
 			<div class="form-group">
-				<label>Poblacion - posgrado</label>
+				<label>Poblacion - 1er ingreso pregrado</label>
 				<input name="poblacion_primer_ingreso[pregrado]" type="number" class="form-control" 
 				value="<?php echo (isset($params['poblacion_primer_ingreso']['pregrado'])) ? $params['poblacion_primer_ingreso']['pregrado'] : '';  ?>"
 				placeholder="Total estudiantes pregrado nuevos" required/>
@@ -336,7 +336,13 @@
 		<textarea name="observaciones" class="form-control"><?php echo isset($params['observaciones']) ? $params['observaciones'] : ''; ?></textarea>
 	</div>
 
+	<!-- Pagina web -->
 	
+	<div class="form-group">
+		<label>Pagina web</label>
+		<input class="form-control" value="<?php echo isset($params['pagina_web']) ? $params['pagina_web'] : ''; ?>" type="text" placeholder="Pagina web" name="pagina_web" required />
+	</div>
+
 
 	<div class="form_group">
 		<input type="submit" value="Enviar" />

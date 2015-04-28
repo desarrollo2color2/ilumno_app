@@ -1,7 +1,7 @@
 <?php
 
 
-	use App\Model as Model;
+	use App\model as Model;
 
 
 	Class UniversityModel extends model {

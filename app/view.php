@@ -2,7 +2,9 @@
 
 	namespace App;
 
-	Class View {
+	use App\app as app;
+
+	Class View extends app {
 		
 
 			

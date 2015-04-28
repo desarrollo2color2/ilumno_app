@@ -1,5 +1,6 @@
 <?php if(isset($_SESSION['user']) && $_SESSION['user']['tipo'] == 'admin') : ?>
 
+
 <ul>
 	<li><a href="<?php echo URL; ?>admin"> <i class="fa fa-home"></i>Inicio</a></li>
 	<!-- Usuario -->
@@ -45,11 +46,12 @@
 			<li><a href="<?php echo URL; ?>admin/universities"> Todas las universidades </a></li>
 			<li><a href="<?php echo URL; ?>admin/add_university"> Añadir universidad </a></li>
 			<li><a href="<?php echo URL; ?>admin/form_import_university"> Importar universidad </a></li>
+			<li><a href="<?php echo URL; ?>admin/import_cities_cobertura"> Importar coberturas </a></li>
 
 		</ul>
 	</li>
 	<!-- Buscar -->
-	<li><a href="<?php echo URL.'admin/search' ?>"><i class="fa fa-user"></i> Buscar </a></li>
+	<!-- <li><a href="<?php //echo URL.'admin/search' ?>"><i class="fa fa-user"></i> Buscar </a></li> -->
 	
 </ul>
 

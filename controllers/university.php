@@ -94,6 +94,8 @@
 
 			if(parent::is_ajax()) :
 
+				header('Content-Type: text/html; charset=ISO-8859-15');
+
 				foreach(CityModel::find_by_attr(array('id_pais' => $_POST['id'])) as $city) :
 
 					echo '<option value="'.$city['id'].'">'.ucfirst($city['nombre']).'</option>';
@@ -244,7 +246,7 @@
 
 				if(is_array($v)) :
 
-					$new_count = count($array[$i]);
+					@$new_count = count($array[$i]);
 
 
 					foreach($v as $v1) :
@@ -273,8 +275,7 @@
 		public static  function import()
 		{
 
-
-
+			
 			$csv = parent::__upload_file(PATH.'assets/upload/', $_FILES['archivo']);
 
 			if ($csv == null) :
@@ -284,7 +285,7 @@
 
 			endif;
 
-	
+		
 
 			$keys = array(
 
@@ -298,16 +299,16 @@
 				7 => 'direccion',
 				8 => 'tipo',
 				9  => array('acreditaciones' => 'nacionales'),
-				10 => array('acreditaciones' => 'intrenacionales'),
+				10 => array('acreditaciones' => 'internacionales'),
 				11 => array('cobertura'      => 'num_sedes'),
 				12 => array('cobertura'      => 'ciudades'),
 				13 => array('modalidad'      => 'presencial'),
 				14 => array('modalidad'      => 'virtual'),
 				15 => array('modalidad'      => 'distancia'),
 				16 => array('poblacion'      => 'total'),
-				17 => array('poblacion'      => 'posgrado'),
-				18 => array('poblacion'      => 'pregrado'),
-				19 => array('poblacion_primer_ingreso'      => 'postgrado'),
+				17 => array('poblacion'      => 'pregrado'),
+				18 => array('poblacion'      => 'posgrado'),
+				19 => array('poblacion_primer_ingreso'      => 'posgrado'),
 				20 => array('poblacion_primer_ingreso'      => 'pregrado'),
 				21 => array('desercion'  => 'acumulada'),
 				22 => array('desercion'  => 'por_periodo'),
@@ -318,6 +319,7 @@
 				27 => array('ingresos'   => 'matricula_pregrado'),
 				28 => array('ingresos'   => 'total_ingresos'),
 				29 => 'observaciones',
+				30 => 'pagina_web',
 
 
 			);
@@ -359,6 +361,10 @@
 		   self::simple_array_multi(array_map('self::convert_cities_values', array_unique($ciudades))));
 
 
+		   UniversityModel::delete_by_attr(array('id_pais' => $new_array[0]['id_pais']));
+		   CityModel::delete_by_attr(array('id_pais' => $new_array[0]['id_pais']));
+		   CurrencyModel::delete_by_attr(array('id_pais' => $new_array[0]['id_pais']));
+
 		   // Organizando array para insertar
 
 		   	$i = 0;
@@ -382,7 +388,7 @@
 			$db_cities = self::order_cities_db($db_cities);
 		    $new_array  = self::db_data_cities($new_array, $db_cities, $id_moneda);
 
-
+		    // parent::dump($new_array);
 		    UniversityModel::save($new_array, true);
 
 		    $_SESSION['message'] = parent::mensaje('success', '<strong>Exito</strong> se importaron las universidades');
@@ -392,6 +398,128 @@
 
 
 
+		}
+		// Funcion para buscar si la ciudad ya esta creada en la bd
+		private static function is_city_exist($cities, $city)
+		{
+
+			foreach($cities as $c_e) :
+				
+				// echo 'ciudad:';parent::dump(strtoupper($c_e['nombre']));
+				// echo 'array';parent::dump(strtoupper($city));
+				// echo '<br/>';
+				if(strtoupper($c_e['nombre']) ==  strtoupper($city)) :
+					return $c_e['id'];
+				endif;
+
+			endforeach;
+
+			return false;
+
+		}
+
+		private static function insert_cobert_city($data, $id_pais)
+		{
+			
+		
+			foreach($data as $k => $dat) :
+			    $array[$k] = array(
+			    	'id_pais' => $id_pais,
+			    	'nombre'  => $dat
+		 		);
+			
+			endforeach;	
+
+			CityModel::save($array, true);
+			
+			$cities = CityModel::find_by_attr(array('id_pais' => $id_pais));
+
+			foreach($data as $k => $da) :
+					$insert_array[$k] = self::is_city_exist($cities, $da);
+			endforeach;
+			
+
+			return $insert_array;
+		}
+
+		private static function is_city($cities, $cities_cobertura)
+		{
+			foreach($cities_cobertura as $k =>  $city_c) :
+			 	$array = self::is_city_exist($cities, $city_c);
+				// parent::dump($city_c);
+				if($array) :
+					$insert_array[$k] = $array;
+				else :
+					$insert_data[$k] = $city_c; 
+				endif;
+
+
+
+			endforeach;
+
+
+			if(isset($insert_array) && isset($insert_data)) :
+
+				$id_pais = $cities[0]['id_pais'];
+
+				$data_to_merge = self::insert_cobert_city($insert_data, $id_pais);
+
+				$register = array_merge($data_to_merge, $insert_array);
+
+			elseif(!isset($insert_array) && isset($insert_data)) :
+				$register = $insert_array;
+			elseif(isset($insert_array) && !isset($insert_data)): 
+				$id_pais       = $cities[0]['id_pais'];
+				$data_to_merge = self::insert_cobert_city($insert_data, $id_pais);
+				$register      = $data_to_merge;
+
+			endif;
+
+			return $register;
+
+
+
+
+			// return UniversityModel::update(array(), ' WHERE id = '.$_POST['id'].' ')
+		}
+
+		public static function import_cobers()
+		{
+			// Traigo las ciudades existentes del pais
+			$cities = CityModel::find_by_attr(
+				array('universidades.id' => $_POST['id']),
+				'ciudades.id, ciudades.nombre, ciudades.id_pais, universidades.cobertura',
+				'LEFT JOIN universidades ON ciudades.id_pais=universidades.id_pais'
+
+			);
+
+
+			$cobertura = $cities[0]['cobertura'];
+
+			$cobertura = json_decode($cobertura, true);
+			
+
+
+			// parent::dump($cobertura);
+
+			$cities_cobertura = self::convert_cities_values($_POST['cobertura']);
+
+			$cobertura['ciudades'] = self::is_city($cities, $cities_cobertura); 
+
+			$cobertura = json_encode($cobertura,JSON_UNESCAPED_UNICODE);
+
+
+			UniversityModel::update(array('cobertura' => $cobertura), ' WHERE id = '.$_POST['id'].' ');
+
+			$_SESSION['message'] = parent::mensaje('success', '<strong>Exito</strong> se importaron las ciudades y se actualizao el registro');
+
+		    $url = URL."admin";
+			return parent::url_redirect($url);
+			
+
+		
+
+			
 		}
 
 

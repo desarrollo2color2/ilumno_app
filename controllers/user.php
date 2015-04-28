@@ -22,12 +22,13 @@
 
 		if($login == false) :
 
-			$_SESSION['message'] = '<div  class = "alerta alerta de peligro"  role = "alerta" > Datos erroneos </ div>';
-			parent::url_redirect(URL);
+			
+			$_SESSION['message'] = parent::mensaje('danger', '<strong>Error</strong> datos erroneos');
+			parent::url_redirect(URL.'login_form');
 
 			else :
-
-				parent::url_redirect(URL.'admin');
+			
+				return ($_SESSION['user']['tipo'] == 'admin') ? parent::url_redirect(URL.'admin') : parent::url_redirect(URL);
 
 		endif;
 

@@ -4,9 +4,16 @@
 
 return array(
 
-	''                       => array('view' => 'home:layout'),
-	'404'                    => array('view' => '404:no_layout'),
-	'acceso_denegado'        => array('view' => 'perm:layout'),
+	''                       => array(
+		'controller'         => 'country_filter:search',
+		'perm'               => array('admin', 'registrado')
+	),
+	'busqueda'               => array(
+		'controller'         => 'search_form:search',
+		'perm'               => array('admin', 'registrado')
+	),
+	'404'                    => array('view'       => '404:no_layout'),
+	'acceso_denegado'        => array('view'       => 'perm:layout'),
 	'admin'                  => array(
 		'view'               => 'dashboard:admin_layout',
 		'perm'               => array('admin')
@@ -156,7 +163,6 @@ return array(
 	),
 	'admin/get_ajax_cities_university' => array(
 		'controller'                   => 'get_ajax_cities:university',
-		'perm'                         => array('admin')
 	),
 	'admin/get_ajax_currencies_university' => array(
 		'controller'                       => 'get_ajax_currencies:university',
@@ -170,12 +176,35 @@ return array(
 		'controller'              => 'import:university',
 		'perm' => array('admin')
 	),
+	'admin/import_cities_cobertura' => array(
+		'view'                      => 'admin_import_cober:admin_layout',
+		'perm'                      => array('admin')
+	),
+	'import_cobers'  => array(
+		'controller' => 'import_cobers:university',
+		'perm'       => array('admin')
+	),        
 	/******************************************************
 	                     Search urls
 	*******************************************************/
-	'admin/search'   => array(
-		'controller' => 'search_form:search',
-		'perm'       => array('admin')
+	// 'admin/search'   => array(
+	// 	'controller' => 'search_form:search',
+	// 	'perm'       => array('admin')
+	// ),
+	'sedes_ajax'     => array(
+		'controller' => 'ajax_sedes_ciudades:search',
+	),
+	'cobertura_ajax'     => array(
+		'controller' => 'cobertura_ajax:search',
+	),
+	'busqueda_simple'     => array(
+		'controller'      => 'ajax_simple_search:search',
+	),
+	'filtros'            => array(
+		'controller'     => 'filtros:search'
+	),
+	'ordenar'            => array(
+		'controller'     => 'order:search'
 	),
 );
 

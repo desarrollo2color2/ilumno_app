@@ -1,12 +1,12 @@
-<link rel="stylesheet" type="text/css" href="<?php echo URL ?>assets/css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo URL ?>assets/css/demo.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo URL ?>assets/css/component.css" />
+<!-- <link rel="stylesheet" type="text/css" href="<?php //echo URL ?>assets/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="<?php //echo URL ?>assets/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="<?php //echo URL ?>assets/css/component.css" />
 
 <div id="main" class="main">
 	
 <figure>
 	<div class="drawings">
-	<img class="illustration" src="<?php echo URL ?>assets/img/nd.png" alt="iMac Illustration" />
+	<img class="illustration" src="<?php//echo URL ?>assets/img/nd.png" alt="iMac Illustration" />
 	<svg version="1.1" id="Layer_1" class="line-drawing" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="190px" height="205.66px" viewBox="0 0 190 205.66" enable-background="new 0 0 190 205.66" xml:space="preserve">
 	<g>
@@ -46,7 +46,7 @@
 	</div>
 
 </figure>
-</div>
+</div> -->
 
 
 

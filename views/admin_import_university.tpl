@@ -7,7 +7,8 @@
 
 	<div class="form-group">
 		<label for="archivo">Archivo (csv)</label>
-		<input type="file" name="archivo" accept=".csv" />
+		
+		<input type="file" name="archivo" />
 	</div>
 
 	<div class="form_group">

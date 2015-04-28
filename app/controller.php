@@ -2,10 +2,11 @@
 
 	namespace App;
 
-	use App\View as view;
+	use App\view as view;
 
+	use App\app as app;
 
-	Class Controller
+	Class Controller extends app
 	{
 
 
@@ -35,7 +36,12 @@
 		// Convertir un arreglo json en noraml para mostar
 		protected static function set_json_data($array)
 		{
+
+		
 			if(is_object(json_decode($array))) :
+				
+
+
 				return json_decode($array, true);
 			else :
 				return $array;
@@ -55,11 +61,7 @@
 
 		}
 
-		protected static function url_redirect($url) {
-
-			header("Location: {$url}");
-			exit();
-		}
+		
 		//  Import csv
 		static function import_csv($path_file)
 		{
