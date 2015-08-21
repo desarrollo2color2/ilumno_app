@@ -50,6 +50,16 @@
 
 		</ul>
 	</li>
+	<!-- Filtros -->
+	<li class="submenu"><a href="#"><i class="fa fa-user"></i> Filtros<i class="fa fa-plus"></i></a>
+		<ul>
+
+			
+			<li><a href="<?php echo URL; ?>admin/top_pais"> Top por pais </a></li>
+		
+
+		</ul>
+	</li>
 	<!-- Buscar -->
 	<!-- <li><a href="<?php //echo URL.'admin/search' ?>"><i class="fa fa-user"></i> Buscar </a></li> -->
 	

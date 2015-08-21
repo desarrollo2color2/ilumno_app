@@ -76,7 +76,7 @@
 
 				foreach(UniversityModel::find_by_attr(array('id_pais' => $_POST['id']), 'DISTINCT ciudad', '',  'ORDER BY ciudad ASC') as $city) :
 
-					echo '<option value="'.$city['ciudad'].'">'.strtoupper($city['ciudad']).'</option>';
+					echo '<option value="'.$city['ciudad'].'">'.$city['ciudad'].'</option>';
 
 				endforeach;
 
@@ -99,7 +99,7 @@
 
 					echo '<div class="checkbox">
 						<label for="">
-							<input type="checkbox" name="cobertura[]" value="'.$city['id'].'"> '.strtoupper($city['nombre']).'
+							<input type="checkbox" name="cobertura[]" value="'.$city['id'].'"> '.$city['nombre'].'
 						</label>
 					</div>';
 
@@ -133,31 +133,46 @@
 		{
 
 			$i = 1;
+
 			foreach($array as $k => $v) :
 
 				if(is_array($v)) :
 
-		
-					foreach($v as $k2 => $v2) :
-						//  En caso de ser selector en array json
-						if($v2 != '' && is_string($v2)) :
-							$new_array[$i]['operador'] = '=';
-							$new_array[$i][$k][$k2] =   $v2;
-							$i++;
-						//  En caso de ser array json por rango
-						elseif((isset($v2['desde']) && $v2['desde'] != '' ) && ( isset($v2['hasta']) && $v2['hasta'] != '' )) :
-							
-							$new_array[$i]['operador'] = '=';
-							$new_array[$i][$k][$k2] =   $v2;
-							$i++;
-
-
-						endif;
-
-					endforeach;
-
 					
+					// Si los campos a compara no son json
+					if((isset($v['desde']) && $v['desde'] != '' ) && ( isset($v['hasta']) && $v['hasta'] != '' )) :
 
+						$new_array[$i]['operador']  = '=';
+						$new_array[$i][$k]['desde'] = $v['desde'];
+						$new_array[$i][$k]['hasta'] = $v['hasta'];
+
+					// Si los campos a comparar son json
+					else :	
+						
+						foreach($v as $k2 => $v2) :
+							//  En caso de ser selector en array json
+							if($v2 != '' && is_string($v2)) :
+								$new_array[$i]['operador'] = '=';
+								$new_array[$i][$k][$k2] =   $v2;
+								$i++;
+							//  En caso de ser array json por rango
+							elseif((isset($v2['desde']) && $v2['desde'] != '' ) && ( isset($v2['hasta']) && $v2['hasta'] != '' )) :
+								
+								$new_array[$i]['operador'] = '=';
+								$new_array[$i][$k][$k2] =   $v2;
+								$i++;
+
+
+							endif;
+
+						endforeach;
+
+					endif;
+
+
+		
+					
+				//  Cuando sea un campo simple y se compare igual al valor
 				else :
 
 					if($v != '') :
@@ -203,27 +218,28 @@
 			@$data = array_map('parent::set_json_data',$value);
 			
 
-			//parent::dump($value);
-
+			// parent::dump($data);
+			// parent::dump($value);
 
 
 			foreach($comparaciones as $compa) :
 
 				$filter_type = self::filter_type($compa);
 
+				
+
 				if(is_array($compa[$filter_type])) :
 
-						//  Comparacion por rangos json
-						if(isset($compa[$filter_type][self::filter_type($compa[$filter_type])]['desde'])) : 
-						
-							$desde = $compa[$filter_type][self::filter_type($compa[$filter_type])]['desde'];
-							$hasta = $compa[$filter_type][self::filter_type($compa[$filter_type])]['hasta'];
+						// Comparacion por rangos no json
+						if(isset($compa[$filter_type]['desde'])):
 
-							$val   = $data[$filter_type][self::filter_type($compa[$filter_type])];
-							$val   = str_replace(' ', '', str_replace('.', '', $val));
-
+							$desde = $compa[$filter_type]['desde'];
+							$hasta = $compa[$filter_type]['hasta'];
 
 							
+							$val   = $data[$filter_type];
+							$val   = str_replace(' ', '', str_replace('.', '', $val));
+								
 
 							if($val == '-') :
 
@@ -231,36 +247,63 @@
 
 							endif;
 
-							$cal = (int)$desde <= (int)$val && (int)$val < (int)$hasta;
+							$cal = (int)$desde <= (int)$val && (int)$val <= (int)$hasta;
 
 							if(!$cal) :
 								return false;
 							endif;
-						
-						//  Comparacion por valores
-						else :
 
-							if (@$data[$filter_type][self::filter_type($compa[$filter_type])] != @$compa[$filter_type][self::filter_type($compa[$filter_type])] ):  
+
+
+						else :	
+						
+							//  Comparacion por rangos desde hasta json
+							if(isset($compa[$filter_type][self::filter_type($compa[$filter_type])]['desde'])) : 
+							
+								$desde = $compa[$filter_type][self::filter_type($compa[$filter_type])]['desde'];
+								$hasta = $compa[$filter_type][self::filter_type($compa[$filter_type])]['hasta'];
+
+								$val   = $data[$filter_type][self::filter_type($compa[$filter_type])];
+								$val   = str_replace(' ', '', str_replace('.', '', $val));
+
+
 								
-								return false;
+
+								if($val == '-') :
+
+									return false;
+
+								endif;
+
+								$cal = (int)$desde <= (int)$val && (int)$val <= (int)$hasta;
+
+								if(!$cal) :
+									return false;
+								endif;
+							
+							//  Comparacion por valores
+							else :
+
+								if (@$data[$filter_type][self::filter_type($compa[$filter_type])] != @$compa[$filter_type][self::filter_type($compa[$filter_type])] ):  
+									
+									return false;
+
+								endif;
 
 							endif;
 
+
+
 						endif;
+
+						
 
 					
 
 					else :
 					// sino es array
 					
-					// echo '<pre>';
-					// 	var_dump(strtoupper($compa[$filter_type]));
-					// 	var_dump(strtoupper($data[$filter_type]));
-					// 	if(strpos(strtolower(self::quitar_tildes($data[$filter_type])), strtolower(self::quitar_tildes($compa[$filter_type]))) !== false) :
-					// 		echo 'aaaa';
-					// 	endif;
 					
-					// echo '</pre>';
 
 					if(strpos(strtolower(self::quitar_tildes($data[$filter_type])), strtolower(self::quitar_tildes($compa[$filter_type]))) === false) :
 						 return false;
@@ -285,8 +328,9 @@
 
 					$comparaciones = self::comparaciones($_POST);
 
+					// parent::dump($comparaciones);
+						
 
-					
 					//  recorrer array consulta general
 					foreach($_SESSION['busqueda'] as $k => $v) :
 
@@ -367,6 +411,8 @@
 					if($data = UniversityModel::find_by_attr(self::empty_ajax_field($_POST))) :
 
 						
+						if(isset($_SESSION['ordernar'])) : unset($_SESSION['ordernar']); endif;
+
 						$_SESSION['busqueda'] = $data;
 						$data['monedas']   = self::simple_cities(CurrencyModel::find_by_attr());
 						$data['cities']      = self::simple_cities(CityModel::find_by_attr(array('id_pais' => $_POST['id_pais'])));
@@ -386,6 +432,8 @@
 						
 						if($data = UniversityModel::find_by_attr(self::empty_ajax_field($_POST))) :
 	
+							if(isset($_SESSION['ordernar'])) : unset($_SESSION['ordernar']); endif;
+
 							// $cities  = CityModel::find_by_attr(array('id_pais' => $_POST['id_pais']));
 							$_SESSION['busqueda']    = self::cobertura_array($data, $cobertura);
 							$new_data                = $_SESSION['busqueda'];
@@ -480,8 +528,16 @@
 				if($campo == 'nombre') :
 					$new_array[$k] = $v['nombre'];
 				else :
-					$campos = explode(':', $campo);
-					$new_array[$k] = number_format((int) str_replace('.', '', $v[$campos[0]][$campos[1]]));
+					// Si el campo a ordernar es json
+					if(strpos($campo, ':')) :
+						$campos = explode(':', $campo);
+						$new_array[$k] = number_format((int) str_replace('.', '', $v[$campos[0]][$campos[1]]));
+					// sino lo es
+					else :
+						$new_array[$k] = number_format((int) str_replace('.', '', $v[$campo]));	
+
+					endif;
+					
 				endif;
 			endforeach;
 
@@ -515,6 +571,8 @@
 
 					$new_data = self::filter_by($data, $_POST['campo']);
 					
+				
+
 					// de mayor a menor descenditente
 
 					if($_POST['campo'] == 'nombre') :

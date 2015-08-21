@@ -12,6 +12,8 @@ return array(
     'CountryModel' => $baseDir . '/models/country.php',
     'CurrencyController' => $baseDir . '/controllers/currency.php',
     'CurrencyModel' => $baseDir . '/models/currency.php',
+    'DashboardController' => $baseDir . '/controllers/dashboard.php',
+    'FilterController' => $baseDir . '/controllers/filter.php',
     'SearchController' => $baseDir . '/controllers/search.php',
     'UniversityController' => $baseDir . '/controllers/university.php',
     'UniversityModel' => $baseDir . '/models/university.php',

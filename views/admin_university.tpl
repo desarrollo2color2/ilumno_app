@@ -330,6 +330,41 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="row">
+		
+		<div class="col-md-3">
+			<div class="form-group">
+				<label for="">Tier</label>
+				<input type="text" name="tier" class="form-control" value="<?php echo (isset($params['tier'])) ? $params['tier'] : '';  ?>"
+					required />
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label for="">Ranking nacional</label>
+				<input type="text" name="rank_nacional" class="form-control" value="<?php echo (isset($params['rank_nacional'])) ? $params['rank_nacional'] : '';  ?>"
+					required />
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label for="">Ranking latinoamercia</label>
+				<input type="text" name="rank_lati" class="form-control" value="<?php echo (isset($params['rank_lati'])) ? $params['rank_lati'] : '';  ?>"
+					required />
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label for="">Ranking mundial</label>
+				<input type="text" name="rank_mundial" class="form-control" value="<?php echo (isset($params['rank_mundial'])) ? $params['rank_mundial'] : '';  ?>"
+					required />
+			</div>
+		</div>
+		
+	</div>
+
+
 	<!-- Observaciones -->
 	<div class="form-group">
 		<label for="">Observaciones</label>

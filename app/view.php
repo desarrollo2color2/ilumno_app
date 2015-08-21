@@ -19,6 +19,14 @@
 		
 
 		}
+
+		// Quitar tildes 
+		static function quitar_tildes($s) 
+		{
+			$find    = array( "á", "é", "í", "ó", "ú"," ", "ñ" );
+      		$replace = array( "a", "e", "i", "o", "u","_", "n" );
+      		return str_replace($find, $replace,  $s);
+		} 
 		// Mensajes
 		static function message($type, $content, $ajax)
 		{

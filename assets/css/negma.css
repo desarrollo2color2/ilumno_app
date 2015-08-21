@@ -57,7 +57,7 @@ a, a:hover {
 .java_filter #filtrar_rango .label_ select {
   -moz-appearance: none;
   -webkit-appearance: none;
-  border: 1px solid #2eb8d4;
+  border: 1px solid #00284e;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -68,7 +68,7 @@ a, a:hover {
 .java_filter #filtrar_rango .label_:after {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  color: #2eb8d4;
+  color: #ff4c4c;
   content: "";
   font-family: FontAwesome;
   height: 100%;
@@ -86,7 +86,7 @@ a, a:hover {
 }
 /* line 119, ../scss/negma.scss */
 .java_filter #filtrar_rango input {
-  border: 1px solid #2eb8d4;
+  border: 1px solid #00284e;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -137,10 +137,14 @@ a, a:hover {
   min-width: 150px;
 }
 /* line 170, ../scss/negma.scss */
-.uni_full .sede, .uni_full .pagina_web, .uni_full .acreditaciones, .uni_full .poblacion_primer_ingreso, .uni_full .ingresos, .uni_full .ciudades_cobertura, .uni_full .observaciones {
-  margin-left: 40px !important;
+.uni_full .ranking {
+  width: 68% !important;
 }
 /* line 174, ../scss/negma.scss */
+.uni_full .sede, .uni_full .pagina_web, .uni_full .acreditaciones, .uni_full .poblacion_primer_ingreso, .uni_full .ingresos, .uni_full .ciudades_cobertura, .uni_full .observaciones, .uni_full .tier {
+  margin-left: 40px !important;
+}
+/* line 178, ../scss/negma.scss */
 .uni_full .sede, .uni_full .rector, .uni_full .email, .uni_full .presidente {
   background: none repeat scroll 0 0 #f9f9f9;
   display: inline-block;
@@ -151,12 +155,12 @@ a, a:hover {
   width: 21%;
   border: 1px solid #e9e9e9;
 }
-/* line 185, ../scss/negma.scss */
+/* line 189, ../scss/negma.scss */
 .uni_full > div strong {
   font-weight: 700;
   color: #000;
 }
-/* line 190, ../scss/negma.scss */
+/* line 194, ../scss/negma.scss */
 .uni_full .nombre {
   background-color: #F1F3F7;
   border-bottom: 1px solid #EBEDF3;
@@ -167,16 +171,16 @@ a, a:hover {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
-/* line 202, ../scss/negma.scss */
+/* line 206, ../scss/negma.scss */
 .uni_full .ingresos ul li {
   min-width: 48% !important;
 }
-/* line 205, ../scss/negma.scss */
+/* line 209, ../scss/negma.scss */
 .uni_full .ingresos ul li i {
   min-width: 210px;
 }
 
-/* line 215, ../scss/negma.scss */
+/* line 219, ../scss/negma.scss */
 .cobertura_btn {
   border: 1px solid #fff;
   font-family: "Open Sans",sans-serif;
@@ -190,45 +194,45 @@ a, a:hover {
   border-radius: 5px;
 }
 
-/* line 227, ../scss/negma.scss */
+/* line 231, ../scss/negma.scss */
 #cobertura h4 {
   text-align: center;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 400;
 }
-/* line 233, ../scss/negma.scss */
+/* line 237, ../scss/negma.scss */
 #cobertura button {
   background-color: #ff4c4c !important;
 }
-/* line 236, ../scss/negma.scss */
+/* line 240, ../scss/negma.scss */
 #cobertura .checkbox {
   width: 185px;
 }
 
-/* line 241, ../scss/negma.scss */
+/* line 245, ../scss/negma.scss */
 .filters {
   padding: 0 10px;
 }
 
-/* line 245, ../scss/negma.scss */
+/* line 249, ../scss/negma.scss */
 #busqueda h2 {
   margin-left: 0 !important;
 }
 
-/* line 249, ../scss/negma.scss */
+/* line 253, ../scss/negma.scss */
 #busqueda .busqueda_head form select option {
   background: #fff;
   color: #444;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
-/* line 257, ../scss/negma.scss */
+/* line 261, ../scss/negma.scss */
 body.home {
   background: url(../img/bg_2.png) no-repeat;
   background-size: 100%;
 }
-/* line 262, ../scss/negma.scss */
+/* line 266, ../scss/negma.scss */
 body.home .login_head {
   background: #00284E;
   height: 50px;
@@ -236,7 +240,7 @@ body.home .login_head {
   top: 0;
   width: 100%;
 }
-/* line 269, ../scss/negma.scss */
+/* line 273, ../scss/negma.scss */
 body.home .login_head .container {
   background: url(../img/l_l.png) no-repeat;
   max-width: 1280px;
@@ -244,7 +248,7 @@ body.home .login_head .container {
   height: 50px;
   background-position: top;
 }
-/* line 279, ../scss/negma.scss */
+/* line 283, ../scss/negma.scss */
 body.home .login_footer {
   position: fixed;
   bottom: 0;
@@ -252,7 +256,7 @@ body.home .login_footer {
   height: 31px;
   width: 100%;
 }
-/* line 287, ../scss/negma.scss */
+/* line 291, ../scss/negma.scss */
 body.home .login_footer .container {
   color: #00284E;
   font-family: verdana;
@@ -261,9 +265,9 @@ body.home .login_footer .container {
   line-height: 31px;
   text-align: center;
 }
-/* line 297, ../scss/negma.scss */
+/* line 301, ../scss/negma.scss */
 body.home .content_paises {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   max-width: 800px;
   margin: 10% auto;
   -moz-box-shadow: #999 2px 2px 10px;
@@ -273,7 +277,7 @@ body.home .content_paises {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 304, ../scss/negma.scss */
+/* line 308, ../scss/negma.scss */
 body.home .content_paises h1 {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
@@ -288,36 +292,36 @@ body.home .content_paises h1 {
   -webkit-border-radius: 10px;
   border-radius: 10px 10px 0 0;
 }
-/* line 317, ../scss/negma.scss */
+/* line 321, ../scss/negma.scss */
 body.home .content_paises form {
   padding: 20px 40px;
   margin-left: 80px;
 }
-/* line 324, ../scss/negma.scss */
+/* line 328, ../scss/negma.scss */
 body.home .content_paises .radio {
   display: inline-block;
   vertical-align: top;
   width: 31%;
   margin-right: 1%;
 }
-/* line 330, ../scss/negma.scss */
+/* line 334, ../scss/negma.scss */
 body.home .content_paises .radio:first-child {
   margin-top: -10px;
 }
-/* line 334, ../scss/negma.scss */
+/* line 338, ../scss/negma.scss */
 body.home .content_paises .radio label {
   font-family: 'Open Sans', sans-serif;
   font-size: 11px;
 }
-/* line 339, ../scss/negma.scss */
+/* line 343, ../scss/negma.scss */
 body.home .content_paises .radio input {
   margin-top: 14px;
 }
-/* line 342, ../scss/negma.scss */
+/* line 346, ../scss/negma.scss */
 body.home .content_paises .radio img {
   margin: 0 10px;
 }
-/* line 349, ../scss/negma.scss */
+/* line 353, ../scss/negma.scss */
 body.home button {
   background-color: #ff4c4c;
   border: medium none;
@@ -334,34 +338,35 @@ body.home button {
   width: 50%;
   margin: 10px auto 10px 16%;
 }
-/* line 362, ../scss/negma.scss */
+/* line 366, ../scss/negma.scss */
 body.home button i {
   margin-right: 10px;
 }
 
-/* line 368, ../scss/negma.scss */
+/* line 372, ../scss/negma.scss */
 #ordenar {
   position: absolute;
   right: 0;
   margin-top: -35px;
 }
-/* line 373, ../scss/negma.scss */
+/* line 377, ../scss/negma.scss */
 #ordenar button {
   color: #fff;
-  background-color: #2eb8d4;
+  background-color: #ff4c4c;
   border: none;
   margin-bottom: 7px;
   margin-left: 5px;
 }
-/* line 381, ../scss/negma.scss */
+/* line 385, ../scss/negma.scss */
 #ordenar label {
   position: relative;
   font-weight: 400;
   margin-right: 10px;
+  color: #00284e;
 }
-/* line 385, ../scss/negma.scss */
+/* line 390, ../scss/negma.scss */
 #ordenar label:after {
-  color: #2eb8d4;
+  color: #ff4c4c;
   content: "";
   font-family: FontAwesome;
   height: 100%;
@@ -373,32 +378,32 @@ body.home button i {
   top: 0;
   width: auto;
 }
-/* line 400, ../scss/negma.scss */
+/* line 405, ../scss/negma.scss */
 #ordenar label select {
   -moz-appearance: none;
   -webkit-appearance: none;
   background-color: transparent;
-  border: 1px solid #2eb8d4;
+  border: 1px solid #00284e;
   box-shadow: none;
-  color: #2eb8d4;
+  color: #00284e;
   font-family: "Open Sans",sans-serif;
   font-size: 11px;
   outline: medium none !important;
   padding: 0 23px 0 10px;
 }
-/* line 411, ../scss/negma.scss */
+/* line 416, ../scss/negma.scss */
 #ordenar label select option {
   color: #444;
 }
 
-/* line 418, ../scss/negma.scss */
+/* line 423, ../scss/negma.scss */
 .paginas {
   margin-left: 15px;
   margin-bottom: 20px;
   max-width: 400px;
   display: block;
 }
-/* line 424, ../scss/negma.scss */
+/* line 429, ../scss/negma.scss */
 .paginas a {
   font-family: 'Open Sans', sans-serif;
   color: #ff4c4c;

@@ -14,10 +14,7 @@ return array(
 	),
 	'404'                    => array('view'       => '404:no_layout'),
 	'acceso_denegado'        => array('view'       => 'perm:layout'),
-	'admin'                  => array(
-		'view'               => 'dashboard:admin_layout',
-		'perm'               => array('admin')
-	),
+	
 	/******************************************************
 	                     User urls
 	*******************************************************/
@@ -206,6 +203,22 @@ return array(
 	'ordenar'            => array(
 		'controller'     => 'order:search'
 	),
+	/******************************************************
+	                     Dashboard urls
+	*******************************************************/
+	'admin'                  => array(
+		'controller'         => 'admin_dashboard:dashboard',
+		'perm'               => array('admin')
+	),
+	'admin/top_pais'         => array(
+		'controller'         => 'top_pais:filter',
+		'perm'               => array('admin')
+	),
+	'filter_by_type'         => array(
+		'controller'         => 'filter_by_type:filter',
+		'perm'               => array('admin')
+	),
+	
 );
 
 ?>

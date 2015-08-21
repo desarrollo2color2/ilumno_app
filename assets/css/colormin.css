@@ -2,12 +2,144 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 39, ../scss/colormin.scss */
+@-moz-keyframes popup {
+  from {
+    margin: -280px 0 0;
+    -moz-transform: translateY(-200px);
+    transform: translateY(-200px);
+  }
+  to {
+    -moz-transform: translateY(50px);
+    transform: translateY(50px);
+    margin: 0;
+  }
+}
+@-webkit-keyframes popup {
+  from {
+    margin: -280px 0 0;
+    -webkit-transform: translateY(-200px);
+    transform: translateY(-200px);
+  }
+  to {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    margin: 0;
+  }
+}
+@keyframes popup {
+  from {
+    margin: -280px 0 0;
+    -moz-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);
+    -webkit-transform: translateY(-200px);
+    transform: translateY(-200px);
+  }
+  to {
+    -moz-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    margin: 0;
+  }
+}
+/* line 53, ../scss/colormin.scss */
+.type_pop_up {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 10000;
+}
+/* line 65, ../scss/colormin.scss */
+.type_pop_up .type_container {
+  margin: -280px;
+  background: #fff;
+  min-height: 300px;
+}
+/* line 70, ../scss/colormin.scss */
+.type_pop_up .type_container .type_form {
+  margin: 0 auto;
+  max-width: 960px;
+  position: relative;
+  min-height: 280px;
+}
+/* line 76, ../scss/colormin.scss */
+.type_pop_up .type_container .type_form .select {
+  position: absolute;
+  height: 50px;
+  display: block;
+  padding: 10px 20px;
+  background: #666;
+  left: 0;
+  top: -30px;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 500px;
+}
+/* line 91, ../scss/colormin.scss */
+.type_pop_up .type_container .type_form .select .open_select {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: block;
+  padding-left: 20px;
+}
+/* line 109, ../scss/colormin.scss */
+.type_pop_up .type_container .type_form .select .option.selected {
+  background: #eee;
+}
+/* line 113, ../scss/colormin.scss */
+.type_pop_up .type_container .type_form .select .option {
+  display: none;
+  font-size: 12px;
+  background: #f9f9f9;
+  margin-left: -20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 500px;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+/* line 125, ../scss/colormin.scss */
+.type_pop_up .type_container .type_form .select .option:hover {
+  background: #eee;
+}
+/* line 137, ../scss/colormin.scss */
+.type_pop_up .type_container.on {
+  -moz-animation: popup 1s linear forwards;
+  -webkit-animation: popup 1s linear forwards;
+  animation: popup 1s linear forwards;
+}
+
+/* line 148, ../scss/colormin.scss */
 body.login_form {
   background: url(../img/bg_1.png) no-repeat;
   background-size: 100%;
 }
-/* line 44, ../scss/colormin.scss */
+/* line 153, ../scss/colormin.scss */
 body.login_form .login_head {
   background: #00284E;
   height: 50px;
@@ -15,7 +147,7 @@ body.login_form .login_head {
   top: 0;
   width: 100%;
 }
-/* line 51, ../scss/colormin.scss */
+/* line 160, ../scss/colormin.scss */
 body.login_form .login_head .container {
   background: url(../img/l_l.png) no-repeat;
   max-width: 1280px;
@@ -23,7 +155,7 @@ body.login_form .login_head .container {
   height: 50px;
   background-position: top;
 }
-/* line 61, ../scss/colormin.scss */
+/* line 170, ../scss/colormin.scss */
 body.login_form .login_footer {
   position: fixed;
   bottom: 0;
@@ -31,7 +163,7 @@ body.login_form .login_footer {
   height: 31px;
   width: 100%;
 }
-/* line 69, ../scss/colormin.scss */
+/* line 178, ../scss/colormin.scss */
 body.login_form .login_footer .container {
   color: #00284E;
   font-family: verdana;
@@ -40,25 +172,25 @@ body.login_form .login_footer .container {
   line-height: 31px;
   text-align: center;
 }
-/* line 80, ../scss/colormin.scss */
+/* line 189, ../scss/colormin.scss */
 body.login_form > div {
   /* margin:0 auto;
   display:block;
   max-width:1170px;
   */
 }
-/* line 88, ../scss/colormin.scss */
+/* line 197, ../scss/colormin.scss */
 body.login_form > div > div {
   margin: 10% auto 0;
   display: block;
   max-width: 400px;
   padding-bottom: 10px;
 }
-/* line 95, ../scss/colormin.scss */
+/* line 204, ../scss/colormin.scss */
 body.login_form > div > div div {
   position: relative;
 }
-/* line 99, ../scss/colormin.scss */
+/* line 208, ../scss/colormin.scss */
 body.login_form > div > div div i {
   position: absolute;
   left: 5%;
@@ -66,7 +198,7 @@ body.login_form > div > div div i {
   padding: 11px 12px;
   color: #999;
 }
-/* line 112, ../scss/colormin.scss */
+/* line 221, ../scss/colormin.scss */
 body.login_form > div > div form {
   background-color: #fff;
   padding-bottom: 20px;
@@ -74,7 +206,7 @@ body.login_form > div > div form {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 118, ../scss/colormin.scss */
+/* line 227, ../scss/colormin.scss */
 body.login_form > div > div h3 {
   padding: 20px 15px;
   text-align: center;
@@ -87,7 +219,7 @@ body.login_form > div > div h3 {
   font-family: 'Open Sans', sans-serif;
   background: #2eb8d4;
 }
-/* line 132, ../scss/colormin.scss */
+/* line 241, ../scss/colormin.scss */
 body.login_form > div > div input[type="text"], body.login_form > div > div input[type="password"] {
   display: block;
   padding: 10px 12px 10px 42px;
@@ -101,7 +233,7 @@ body.login_form > div > div input[type="text"], body.login_form > div > div inpu
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
 }
-/* line 146, ../scss/colormin.scss */
+/* line 255, ../scss/colormin.scss */
 body.login_form > div > div input[type="submit"] {
   display: block;
   padding: 10px 12px;
@@ -118,7 +250,7 @@ body.login_form > div > div input[type="submit"] {
   text-transform: uppercase;
   width: 94%;
 }
-/* line 165, ../scss/colormin.scss */
+/* line 274, ../scss/colormin.scss */
 body.login_form > div > div a {
   text-decoration: none;
   cursor: pointer;
@@ -129,11 +261,11 @@ body.login_form > div > div a {
   font-size: 14px;
 }
 
-/* line 190, ../scss/colormin.scss */
+/* line 299, ../scss/colormin.scss */
 body {
   background: #f1f2f7;
 }
-/* line 196, ../scss/colormin.scss */
+/* line 305, ../scss/colormin.scss */
 body header {
   min-height: 60px;
   background: #fff;
@@ -144,7 +276,7 @@ body header {
   z-index: 1001;
   top: 0;
 }
-/* line 207, ../scss/colormin.scss */
+/* line 316, ../scss/colormin.scss */
 body header .ico_menu {
   display: inline-block;
   vertical-align: top;
@@ -153,12 +285,12 @@ body header .ico_menu {
   margin-top: 20px;
   cursor: pointer;
 }
-/* line 218, ../scss/colormin.scss */
+/* line 327, ../scss/colormin.scss */
 body header .admin_logo {
   position: absolute;
   left: 40%;
 }
-/* line 225, ../scss/colormin.scss */
+/* line 334, ../scss/colormin.scss */
 body header .logout {
   display: block;
   background-color: #a9d96c;
@@ -175,7 +307,7 @@ body header .logout {
   border-radius: 5px;
   margin-top: 10px;
 }
-/* line 242, ../scss/colormin.scss */
+/* line 351, ../scss/colormin.scss */
 body header .user_interface {
   background: none repeat scroll 0 0 #2a3542;
   display: none;
@@ -186,7 +318,7 @@ body header .user_interface {
   right: -2px;
   min-width: 500px;
 }
-/* line 255, ../scss/colormin.scss */
+/* line 364, ../scss/colormin.scss */
 body header .user_interface span {
   font-family: 'Open Sans', sans-serif;
   color: #fff;
@@ -196,12 +328,12 @@ body header .user_interface span {
   display: block;
   width: 100%;
 }
-/* line 265, ../scss/colormin.scss */
+/* line 374, ../scss/colormin.scss */
 body header .user_interface span b {
   display: block;
   text-align: center;
 }
-/* line 274, ../scss/colormin.scss */
+/* line 383, ../scss/colormin.scss */
 body header .user_interface:after {
   border-bottom: 10px solid #2a3542;
   border-left: 10px solid transparent;
@@ -213,7 +345,7 @@ body header .user_interface:after {
   top: -8px;
   z-index: 1000;
 }
-/* line 292, ../scss/colormin.scss */
+/* line 401, ../scss/colormin.scss */
 body header .user_icon {
   background: none repeat scroll 0 0 #f5f5f5;
   border-radius: 40px;
@@ -230,7 +362,7 @@ body header .user_icon {
   width: 40px;
   outline: none;
 }
-/* line 317, ../scss/colormin.scss */
+/* line 426, ../scss/colormin.scss */
 body aside {
   background: #2a3542;
   width: 210px;
@@ -240,23 +372,23 @@ body aside {
   z-index: 1000;
   top: 0;
 }
-/* line 327, ../scss/colormin.scss */
+/* line 436, ../scss/colormin.scss */
 body aside ul {
   padding: 0;
 }
-/* line 333, ../scss/colormin.scss */
+/* line 442, ../scss/colormin.scss */
 body aside ul li {
   margin: 0 15px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 338, ../scss/colormin.scss */
+/* line 447, ../scss/colormin.scss */
 body aside ul li > ul {
   display: none;
   list-style: none;
 }
-/* line 345, ../scss/colormin.scss */
+/* line 454, ../scss/colormin.scss */
 body aside ul li a {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
@@ -264,39 +396,40 @@ body aside ul li a {
   padding: 15px 0 15px 10px;
   display: block;
 }
-/* line 353, ../scss/colormin.scss */
+/* line 462, ../scss/colormin.scss */
 body aside ul li a .fa-plus {
   font-size: 11px;
   float: right;
 }
-/* line 360, ../scss/colormin.scss */
+/* line 469, ../scss/colormin.scss */
 body aside ul li a i {
   margin-right: 10px;
   min-width: 15px;
 }
-/* line 371, ../scss/colormin.scss */
+/* line 480, ../scss/colormin.scss */
 body aside ul li:hover {
   background: #35404d;
 }
-/* line 375, ../scss/colormin.scss */
+/* line 484, ../scss/colormin.scss */
 body aside ul li:hover a {
   text-decoration: none;
   color: #fff;
 }
-/* line 380, ../scss/colormin.scss */
+/* line 489, ../scss/colormin.scss */
 body aside ul li:hover a i {
   color: #ff6c60;
 }
-/* line 386, ../scss/colormin.scss */
+/* line 495, ../scss/colormin.scss */
 body aside ul li:hover a .fa-plus {
   color: #fff;
 }
-/* line 405, ../scss/colormin.scss */
+/* line 514, ../scss/colormin.scss */
 body #admincontent {
   margin-top: 80px;
   margin-left: 210px;
+  min-height: 4000px;
 }
-/* line 411, ../scss/colormin.scss */
+/* line 520, ../scss/colormin.scss */
 body #admincontent .admin {
   background: #fff;
   margin: 2% 1%;
@@ -305,11 +438,11 @@ body #admincontent .admin {
   border-radius: 5px;
   padding: 0 0 15px;
 }
-/* line 420, ../scss/colormin.scss */
+/* line 529, ../scss/colormin.scss */
 body #admincontent .add_apto {
   display: block;
 }
-/* line 422, ../scss/colormin.scss */
+/* line 531, ../scss/colormin.scss */
 body #admincontent .apto {
   width: 45%;
   display: inline-block;
@@ -319,7 +452,7 @@ body #admincontent .apto {
   border: 1px solid #f0f0f0;
   padding: 2%;
 }
-/* line 438, ../scss/colormin.scss */
+/* line 547, ../scss/colormin.scss */
 body #admincontent .change_slide_img, body #admincontent .change_logo, body #admincontent .add_gallery, body #admincontent .add_apto, body #admincontent .change_img_google, body #admincontent .change_pdf {
   background-color: #57c8f2;
   display: block;
@@ -334,11 +467,11 @@ body #admincontent .change_slide_img, body #admincontent .change_logo, body #adm
   cursor: pointer;
   text-decoration: none;
 }
-/* line 451, ../scss/colormin.scss */
+/* line 560, ../scss/colormin.scss */
 body #admincontent .change_slide_img i, body #admincontent .change_logo i, body #admincontent .add_gallery i, body #admincontent .add_apto i, body #admincontent .change_img_google i, body #admincontent .change_pdf i {
   margin-right: 15px;
 }
-/* line 462, ../scss/colormin.scss */
+/* line 571, ../scss/colormin.scss */
 body #admincontent .remove_apto {
   color: #fff;
   padding: 5px;
@@ -354,12 +487,12 @@ body #admincontent .remove_apto {
   text-align: center;
   cursor: pointer;
 }
-/* line 479, ../scss/colormin.scss */
+/* line 588, ../scss/colormin.scss */
 body #admincontent #sortable {
   list-style: none;
   padding: 0;
 }
-/* line 484, ../scss/colormin.scss */
+/* line 593, ../scss/colormin.scss */
 body #admincontent #sortable li {
   margin-right: 1%;
   width: 47%;
@@ -368,7 +501,7 @@ body #admincontent #sortable li {
   padding: 2%;
   border: 1px solid #f0f0f0;
 }
-/* line 493, ../scss/colormin.scss */
+/* line 602, ../scss/colormin.scss */
 body #admincontent #sortable li .remove_img_gallery {
   color: #fff;
   padding: 5px;
@@ -384,15 +517,15 @@ body #admincontent #sortable li .remove_img_gallery {
   text-align: center;
   cursor: pointer;
 }
-/* line 514, ../scss/colormin.scss */
+/* line 623, ../scss/colormin.scss */
 body #admincontent form {
   padding: 15px 0;
 }
-/* line 518, ../scss/colormin.scss */
+/* line 627, ../scss/colormin.scss */
 body #admincontent form input[type="file"] {
   margin: 10px;
 }
-/* line 524, ../scss/colormin.scss */
+/* line 633, ../scss/colormin.scss */
 body #admincontent form input[type="submit"] {
   background-color: #ff6c60;
   color: #fff;
@@ -405,34 +538,34 @@ body #admincontent form input[type="submit"] {
   border: none;
   margin: 0 15px;
 }
-/* line 537, ../scss/colormin.scss */
+/* line 646, ../scss/colormin.scss */
 body #admincontent form .pdf {
   font-family: 'Open Sans', sans-serif;
 }
-/* line 544, ../scss/colormin.scss */
+/* line 653, ../scss/colormin.scss */
 body #admincontent form .fa-file-pdf-o {
   font-size: 80px;
   color: #f4f4f4;
   text-shadow: #666 1px 1px 0;
   margin-right: 15px;
 }
-/* line 554, ../scss/colormin.scss */
+/* line 663, ../scss/colormin.scss */
 body #admincontent form .form-group {
   padding: 0 15px;
 }
-/* line 559, ../scss/colormin.scss */
+/* line 668, ../scss/colormin.scss */
 body #admincontent form .form-group label {
   font-family: 'Open Sans', sans-serif;
   color: #444;
   display: block;
 }
-/* line 567, ../scss/colormin.scss */
+/* line 676, ../scss/colormin.scss */
 body #admincontent form .form-group img {
   width: 100% !important;
   max-width: 100%;
   max-height: 200px;
 }
-/* line 578, ../scss/colormin.scss */
+/* line 687, ../scss/colormin.scss */
 body #admincontent form .form-group output span {
   border: 1px solid #f0f0f0;
   display: inline-block;
@@ -442,7 +575,7 @@ body #admincontent form .form-group output span {
   position: relative;
   width: 47% !important;
 }
-/* line 596, ../scss/colormin.scss */
+/* line 705, ../scss/colormin.scss */
 body #admincontent form .form-group select {
   -moz-appearance: tabpanels;
   -webkit-appearance: tabpanels;
@@ -451,13 +584,13 @@ body #admincontent form .form-group select {
   box-shadow: none;
   display: block;
 }
-/* line 601, ../scss/colormin.scss */
+/* line 710, ../scss/colormin.scss */
 body #admincontent form .form-group select option {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 609, ../scss/colormin.scss */
+/* line 718, ../scss/colormin.scss */
 body #admincontent form .form-group input[type="text"], body #admincontent form .form-group input[type="email"], body #admincontent form .form-group select, body #admincontent form .form-group input[type="password"] {
   display: block;
   padding: 7px 15px;
@@ -469,35 +602,35 @@ body #admincontent form .form-group input[type="text"], body #admincontent form 
   border-radius: 5px;
   border: 1px solid #c3c3c3;
 }
-/* line 624, ../scss/colormin.scss */
+/* line 733, ../scss/colormin.scss */
 body #admincontent form .inline {
   float: left;
   width: 48%;
   margin-right: 1%;
   min-height: 60px;
 }
-/* line 632, ../scss/colormin.scss */
+/* line 741, ../scss/colormin.scss */
 body #admincontent form .inline:after, body #admincontent form .inline:before {
   clear: both;
 }
-/* line 643, ../scss/colormin.scss */
+/* line 752, ../scss/colormin.scss */
 body #admincontent .full {
   clear: both;
 }
-/* line 651, ../scss/colormin.scss */
+/* line 760, ../scss/colormin.scss */
 body #admincontent .table {
   width: 90%;
   margin: 15px 0;
 }
-/* line 658, ../scss/colormin.scss */
+/* line 767, ../scss/colormin.scss */
 body #admincontent .table thead th {
   font-family: 'Open Sans', sans-serif;
 }
-/* line 671, ../scss/colormin.scss */
+/* line 780, ../scss/colormin.scss */
 body #admincontent .table tbody td {
   font-family: Trebuchet MS;
 }
-/* line 676, ../scss/colormin.scss */
+/* line 785, ../scss/colormin.scss */
 body #admincontent .table tbody td .edit {
   display: block;
   background-color: #41cac0;
@@ -510,7 +643,7 @@ body #admincontent .table tbody td .edit {
   padding: 5px 7px;
   text-align: center;
 }
-/* line 690, ../scss/colormin.scss */
+/* line 799, ../scss/colormin.scss */
 body #admincontent .table tbody td .delete {
   display: block;
   background-color: #ff6c60;
@@ -523,7 +656,7 @@ body #admincontent .table tbody td .delete {
   padding: 5px 7px;
   text-align: center;
 }
-/* line 711, ../scss/colormin.scss */
+/* line 820, ../scss/colormin.scss */
 body #admincontent .add_button {
   float: right;
   display: block;
@@ -545,15 +678,15 @@ body #admincontent .add_button {
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-/* line 724, ../scss/colormin.scss */
+/* line 833, ../scss/colormin.scss */
 body #admincontent .add_button i {
   margin-right: 15px;
 }
-/* line 731, ../scss/colormin.scss */
+/* line 840, ../scss/colormin.scss */
 body #admincontent .add_button:hover {
   padding-top: 20px;
 }
-/* line 741, ../scss/colormin.scss */
+/* line 850, ../scss/colormin.scss */
 body #admincontent .title {
   margin: 0;
   background: #00a8b3;
@@ -566,7 +699,7 @@ body #admincontent .title {
   -webkit-border-radius: 5px;
   border-radius: 5px 5px 0 0;
 }
-/* line 753, ../scss/colormin.scss */
+/* line 862, ../scss/colormin.scss */
 body #admincontent .title i {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -575,7 +708,7 @@ body #admincontent .title i {
   background: #0099A4;
   margin-right: 15px;
 }
-/* line 768, ../scss/colormin.scss */
+/* line 877, ../scss/colormin.scss */
 body footer {
   background: #5b6e84;
   width: 100%;
@@ -585,16 +718,140 @@ body footer {
   z-index: 999;
   position: fixed;
 }
-/* line 778, ../scss/colormin.scss */
+/* line 887, ../scss/colormin.scss */
 body footer div {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
-/* line 795, ../scss/colormin.scss */
+/* line 904, ../scss/colormin.scss */
 .search_results .row {
   display: inline-block;
   vertical-align: top;
   margin: 0;
+}
+
+/* line 914, ../scss/colormin.scss */
+#accordion {
+  width: 100%;
+  padding: 0 20px;
+}
+/* line 918, ../scss/colormin.scss */
+#accordion .panel + .panel {
+  margin: 10px 0;
+}
+/* line 924, ../scss/colormin.scss */
+#accordion .panel-heading {
+  border: none;
+  background: none;
+  padding: 0;
+}
+/* line 928, ../scss/colormin.scss */
+#accordion .panel-heading h4 {
+  background: #2a3542;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding: 18px 25px 18px 80px;
+  position: relative;
+  width: 100%;
+  display: block;
+}
+/* line 938, ../scss/colormin.scss */
+#accordion .panel-heading h4 i {
+  background: #fff none repeat scroll 0 0;
+  color: #2a3542;
+  display: block;
+  left: 0;
+  padding: 20px 25px;
+  position: absolute;
+  top: 0;
+}
+/* line 952, ../scss/colormin.scss */
+#accordion .panel-collapse.in {
+  height: inherit;
+}
+/* line 956, ../scss/colormin.scss */
+#accordion .panel-collapse {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+}
+/* line 964, ../scss/colormin.scss */
+#accordion .panel-collapse .panel-body {
+  width: 100%;
+  verticval-align: top;
+  margin: 25px 0;
+  display: block;
+  padding: 15px 25px;
+  border: none;
+}
+/* line 974, ../scss/colormin.scss */
+#accordion .panel-collapse .panel-body table th {
+  text-transform: uppercase;
+}
+/* line 979, ../scss/colormin.scss */
+#accordion .panel-collapse .panel-body table td, #accordion .panel-collapse .panel-body table th {
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+}
+/* line 992, ../scss/colormin.scss */
+#accordion .panel-collapse .data_info {
+  /*border-left:1px solid #e8e8e8;
+  float:right;
+  vertical-align:top;
+  width:18%;
+  height:100%;
+  min-height:500px;
+  padding:10px;*/
+  /*background:#ff4c4c none repeat scroll 0 0;]*/
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+  -moz-column-gap: 15px;
+  -webkit-column-gap: 15px;
+  column-gap: 15px;
+  width: 70%;
+  margin-top: 25px;
+}
+/* line 1006, ../scss/colormin.scss */
+#accordion .panel-collapse .data_info ul {
+  list-style: none;
+  padding: 0;
+}
+/* line 1009, ../scss/colormin.scss */
+#accordion .panel-collapse .data_info ul li {
+  font-size: 11px;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 8px;
+  color: #333;
+}
+/* line 1014, ../scss/colormin.scss */
+#accordion .panel-collapse .data_info ul li strong {
+  float: right;
+}
+/* line 1023, ../scss/colormin.scss */
+#accordion .panel-collapse .data_info .total {
+  font-size: 11px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0 10px;
+  color: #333;
+}
+/* line 1028, ../scss/colormin.scss */
+#accordion .panel-collapse .data_info .total strong {
+  float: right;
+}
+
+/* line 1042, ../scss/colormin.scss */
+.type {
+  padding: 15px 25px;
+}
+/* line 1045, ../scss/colormin.scss */
+.type table {
+  width: 100% !important;
+  margin: 0 auto;
+  display: block;
+  font-size: 12px;
 }

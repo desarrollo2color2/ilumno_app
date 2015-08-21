@@ -24,7 +24,8 @@ Class Db {
 	public static function __query($query) {
 
 		$db = static::__connect();
-		//echo $query;
+		// echo $query;
+		
 		$result = $db->query($query);
 		
 		while ($row = $result->fetch_assoc()) {
@@ -53,19 +54,65 @@ Class Db {
 
 			foreach ($array as $k => $v):
 
-				$query .= ($i == $count) ? $k . ' = "' . $v . '" ' : $k . '= "' . $v . '" AND ';
+				// si es array condionales y operadores 
+				if(is_array($v)) :
 
+					switch ($v['condicional']) {
+						case 'like':
+
+							$before   = (isset($v['before'])) ? $v['before'] : '';
+							$after    = (isset($v['after'])) ? $v['after'] : '';
+
+							$like_ini = ($v['like_ini'] == true) ? '%' : ''; 
+							$like_fin = ($v['like_fin'] == true) ? '%' : '';
+
+
+
+
+
+							$query .= $before.' '.$v['key'].' '.$v['condicional'].' "'.$like_ini.$v['value'].$like_fin.'"  '.$after.' '.$v['operador']; 
+
+						break;
+						
+
+						case 'between' :
+
+							$before   = (isset($v['before'])) ? $v['before'] : '';
+							$after    = (isset($v['after'])) ? $v['after'] : '';
+
+							$query .= $before.' '.$v['key'].' '.$v['condicional'].' "'.$v['from'].'" AND "'.$v['to'].'" '.$after.' '.$v['operador']; 
+
+
+						break;
+
+						default:
+							
+							$before   = (isset($v['before'])) ? $v['before'] : '';
+							$after    = (isset($v['after'])) ? $v['after'] : '';
+							$value    = (isset($v['numeric'])) ? $v['value'] : "{$v['value']}";
+							$query .= $before.' '.$v['key'].' '.$v['condicional'].'  '.$value.' '.$after.' '.$v['operador'];
+						break;
+					}
+
+				else :
+					
+					$query .= ($i == $count) ? $k . ' = "' . $v . '" ' : $k . '= "' . $v . '" AND ';
+
+				endif;
 				$i++;
 
 			endforeach;
 
 			$query = rtrim($query, 'AND');
-		
+		// 
 		else : 
 			$query .= $array;	 
 
 		endif;
 		$query .= $more;
+
+
+		// echo $query;
 
 		$result = static::__query($query);
 

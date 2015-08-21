@@ -34,7 +34,7 @@
           		
 
 	          	 ?>
-	          		['<?php echo $params['nombres'][$k]; ?>', 
+	          		['<?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k])); ?>', 
 	          		<?php echo $tier[1]; ?>, 
 	          		<?php echo $tier[2]; ?>,
 	          		<?php echo $tier[3]; ?>,
@@ -73,7 +73,7 @@
           		
 
 	          	 ?>
-	          		['<?php echo $params['nombres'][$k]; ?>', <?php echo $ing; ?>],
+	          		['<?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k])); ?>', <?php echo $ing; ?>],
 	          	<?php  endforeach; ?>
 	          ]);
 
@@ -129,7 +129,7 @@
           		
 
 	          	 ?>
-	          		['<?php echo $params['nombres'][$k]; ?>', <?php echo $ing; ?>],
+	          		['<?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k])); ?>', <?php echo $ing; ?>],
 	          	<?php  endforeach; ?>
 	          ]);
 
@@ -179,7 +179,7 @@
           			if(in_array($k, $america)):
 
 	           ?>
-	          ['<?php echo $params['nombres'][$k]; ?>', <?php echo $matri; ?>],
+	          ['<?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k])); ?>', <?php echo $matri; ?>],
 	          <?php endif; endforeach; ?>
 	        ]);
 
@@ -210,7 +210,7 @@
           			if(in_array($k, $centro)):
 
 	           ?>
-	          ['<?php echo $params['nombres'][$k]; ?>', <?php echo $matri; ?>],
+	          ['<?php echo utf8_encode($params['nombres'][$k]); ?>', <?php echo $matri; ?>],
 	          <?php endif; endforeach; ?>
 	        ]);
 
@@ -241,7 +241,7 @@
           			if(in_array($k, $caribe)):
 
 	           ?>
-	          ['<?php echo $params['nombres'][$k]; ?>', <?php echo $matri; ?>],
+	          ['<?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k])); ?>', <?php echo $matri; ?>],
 	          <?php endif; endforeach; ?>
 	        ]);
 
@@ -272,7 +272,7 @@
           			if(in_array($k, $america)):
           				 ?>
         
-          			['<?php echo $params['nombres'][$k]; ?>', <?php echo $country; ?>],
+          			['<?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k])); ?>', <?php echo $country; ?>],
 
           <?php endif; endforeach; ?>
 
@@ -303,7 +303,7 @@
           			if(in_array($k, $centro)):
           				  ?>
         
-          			['<?php echo $params['nombres'][$k]; ?>', <?php echo $country1 ?>],
+          			['<?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k])); ?>', <?php echo $country1 ?>],
 
           <?php endif;
            endforeach; ?>
@@ -335,7 +335,7 @@
           				  ?>
         
           			
-          			['<?php echo $params['nombres'][$k]; ?>', <?php echo $country2 ?>],
+          			['<?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k])); ?>', <?php echo $country2 ?>],
 
           <?php endif; endforeach; ?>
 
@@ -371,7 +371,7 @@
 		<div role="tab" class="panel-heading">
 	      <h4 class="panel-title">
 	        <a aria-controls="tab1" aria-expanded="true" href="#tab1" data-parent="#accordion" data-toggle="collapse" role="button" class="">
-	          <i class="fa fa-map"></i> <?php echo utf8_decode('Instituciones por país'); ?>
+	          <i class="fa fa-map"></i> Instituciones por país
 	        </a>
 	      </h4>
     	</div>
@@ -391,7 +391,7 @@
 				 			
 				 			foreach($params['int_x_pais'] as $k1 => $v1) :  ?>
 
-						<li><?php echo $params['nombres'][$k1]; ?> <strong><?php echo $v1; ?></strong></li>
+						<li><?php echo utf8_encode($params['nombres'][$k1]); ?> <strong><?php echo $v1; ?></strong></li>
 
 				 		<?php endforeach; ?>
 				 	</ul>
@@ -416,7 +416,7 @@
    		<div role="tab" class="panel-heading">
    			 <h4 class="panel-title">
 		        <a aria-controls="collapseOne" aria-expanded="true" href="#tab2" data-parent="#accordion" data-toggle="collapse" role="button" class="">
-		          <i class="fa fa-map"></i> <?php echo utf8_decode('Matrículas por país'); ?>
+		          <i class="fa fa-map"></i> Matrículas por país
 		        </a>
       		</h4>
    		</div>
@@ -435,7 +435,7 @@
 				 			
 				 			foreach($params['poblacion_total'] as $k1 => $v1) :  ?>
 
-						<li><?php echo $params['nombres'][$k1]; ?> <strong><?php echo number_format($v1); ?></strong></li>
+						<li><?php echo utf8_encode($params['nombres'][$k1]); ?> <strong><?php echo number_format($v1); ?></strong></li>
 
 				 		<?php endforeach; ?>
 				 	</ul>
@@ -459,7 +459,7 @@
    		<div role="tab" class="panel-heading">
    			 <h4 class="panel-title">
 		        <a aria-controls="collapseOne" aria-expanded="true" href="#tab3" data-parent="#accordion" data-toggle="collapse" role="button" class="">
-		          <i class="fa fa-map"></i> <?php echo utf8_decode('Ingresos por país'); ?>
+		          <i class="fa fa-map"></i> Ingresos por país
 		        </a>
       		</h4>
    		</div>
@@ -475,7 +475,7 @@
 				 			
 				 			foreach($params['total_ingresos'] as $k1 => $v1) :  ?>
 
-						<li><?php echo $params['nombres'][$k1]; ?> <strong><?php echo number_format($v1); ?></strong></li>
+						<li><?php echo utf8_encode($params['nombres'][$k1]); ?> <strong><?php echo number_format($v1); ?></strong></li>
 
 				 		<?php endforeach; ?>
 				 	</ul>
@@ -519,7 +519,7 @@
 					<tbody>
 						<?php foreach($params['tier'] as $k1 => $tier): ?>
 							<tr>
-								<td><?php echo $params['nombres'][$k1]; ?></td>
+								<td><?php echo self::quitar_tildes(utf8_encode($params['nombres'][$k1])); ?></td>
 								<td> <?php echo $tier[1]; ?> </td>
 								<td> <?php echo $tier[2]; ?> </td>
 								<td> <?php echo $tier[3]; ?> </td>

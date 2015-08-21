@@ -34,6 +34,115 @@
 }
 
 
+
+
+@include keyframes(popup) {
+    from{
+		margin:-280px 0 0;
+		@include transform (translateY(-200px));
+    }
+
+    to {
+		@include transform (translateY(50px));
+		margin:0;
+    }
+}
+
+
+
+.type_pop_up {
+	
+	position:fixed;
+	width:100%;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	background:rgba(0,0,0,0.8);
+	display:none;
+	z-index:10000;
+	
+	.type_container {
+		margin:-280px;
+		background:#fff;
+		min-height:300px;
+
+		.type_form {
+			margin:0 auto;
+			max-width:960px;
+			position:relative;
+			min-height:280px;
+
+			.select {
+				
+				
+				position:absolute;
+				height:50px;
+				display:block;
+				padding:10px 20px;
+				background:#666;
+				left:0;
+				top:-30px;
+				right:0;
+				bottom:0;
+				margin:auto;
+				max-width:500px;	
+
+				.open_select {
+					display:block;
+					@include google;
+					color:#fff;
+					text-transform:uppercase;
+					text-decoration:none;
+					line-height:50px;
+					position:absolute;
+					left:0;
+					top:0;
+					height:100%;
+					width:100%;
+					display:block;
+					padding-left:20px;
+
+
+				}
+				
+				.option.selected {
+					background:#eee;
+				}
+
+				.option {
+					display:none;
+					font-size:12px;
+					background:#f9f9f9;
+					margin-left:-20px;
+					padding:10px 20px;
+					cursor:pointer;
+					width:500px;
+					@include transition-property(all);
+				    @include transition-duration(0.3s);
+				    @include transition-timing-function(ease-in-out);
+	
+					&:hover {
+						background:#eee;
+						
+					}
+				}	
+			}
+		}
+	}
+
+	
+	
+
+	.type_container.on {
+		@include animation(popup 1s linear  forwards);
+		
+		
+	}
+}
+
+
+
 // Login
 
 body.login_form{
@@ -406,7 +515,7 @@ body {
 
 		margin-top:80px;
 		margin-left:210px;
-		
+		min-height:4000px;
 
 		.admin {
 
@@ -799,4 +908,145 @@ body {
 	}
 } 
 
+
+
+//  Graficas dashboard
+#accordion{
+	width:100%;
+	padding:0 20px;
+	
+	.panel + .panel {
+		margin:10px 0;
+	}
+
+
+
+	.panel-heading {
+		border:none;
+		background:none;
+		padding:0;
+		h4{
+			background:#2a3542;
+			color:#fff;
+			@include google;
+			font-size:12px;
+			padding:18px 25px 18px 80px;
+			position:relative;
+			width:100%;
+			display:block;
+
+			i {
+				background: #fff none repeat scroll 0 0;
+			    color: #2a3542;
+			    display: block;
+			    left: 0;
+			    padding: 20px 25px;
+			    position: absolute;
+			    top: 0;
+
+			}
+		}
+	}
+
+
+	.panel-collapse.in {
+		height:inherit;
+	}
+
+	.panel-collapse 	{
+			
+		display:block;
+		position:relative;
+		overflow:hidden;
+		height:0;	
+
+
+		.panel-body {
+			width:100%;
+			verticval-align:top;
+			margin:25px 0;
+			display:block;
+			padding:15px 25px;
+			border:none;
+
+			table {
+				
+				th {
+					text-transform:uppercase;
+				}
+
+
+				td, th {
+					font-size:12px;
+					@include google;
+				}
+
+			}
+		}
+
+		
+		
+
+		
+
+		.data_info {
+			/*border-left:1px solid #e8e8e8;
+			float:right;
+			vertical-align:top;
+			width:18%;
+			height:100%;
+			min-height:500px;
+			padding:10px;*/
+			/*background:#ff4c4c none repeat scroll 0 0;]*/
+			@include column-count(3);
+			@include column-gap(15px);
+			width:70%;
+			margin-top:25px;
+
+			ul{
+				list-style:none;
+				padding:0;
+				li {
+					font-size:11px;
+					@include google;
+					margin-bottom:8px;
+					color:#333;
+					strong {
+						float:right;
+					}
+				}
+			}
+
+
+
+
+			.total {
+				font-size:11px;
+				@include google;
+				padding:0 10px;
+				color:#333;
+				strong {
+					float:right;
+				}
+			}
+
+		}
+
+	}
+}
+
+
+// Types styles
+
+
+.type {
+	padding:15px 25px;
+
+	table {
+		width:100% !important;
+		margin:0 auto;
+		display:block;
+		font-size:12px;
+	}
+}
 

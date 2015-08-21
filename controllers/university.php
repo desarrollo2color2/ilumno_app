@@ -320,6 +320,10 @@
 				28 => array('ingresos'   => 'total_ingresos'),
 				29 => 'observaciones',
 				30 => 'pagina_web',
+				31 => 'tier',
+				32 => 'rank_nacional',
+				33 => 'rank_lati',
+				34 => 'rank_mundial'
 
 
 			);

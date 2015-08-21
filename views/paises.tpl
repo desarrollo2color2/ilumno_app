@@ -73,9 +73,9 @@
 
 							<div class="radio">
 							  <label style="text-transform:uppercase;">
-							    <?php if (is_numeric(array_search($pais['nombre'], $n))) : ?>
+							    <?php /*if (is_numeric(array_search($pais['nombre'], $n))) :  */?>
 									<input type="radio" name="id_pais" <?php echo ($i == 1) ? 'required' : ''; ?>  value="<?php echo $pais['id']; ?>" />
-								<?php endif; ?>
+								<?php /* endif; */ ?>
 							    <img width="40" height="40" src="<?php echo URL; ?>assets/upload/<?php echo $pais['img'] ?>" alt="bandera" />
 							    <?php echo ucfirst($pais['nombre']); ?>	
 							  </label>
